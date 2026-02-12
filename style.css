@@ -1,0 +1,1443 @@
+/* ==================== RESET E BASE ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ==================== SIDEBAR DE PROFESSORES ==================== */
+.sidebar {
+    width: 350px;
+    background: white;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 100;
+}
+
+.sidebar-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.sidebar-header h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.sidebar-header p {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.sidebar-controls {
+    padding: 15px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.search-box {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.search-box:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.teachers-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.teachers-container h3 {
+    color: #495057;
+    font-size: 14px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.teacher-count {
+    background: #667eea;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+/* Card de professor na sidebar */
+.teacher-item {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: all 0.3s;
+    color: white;
+    padding: 12px;
+    cursor: grab;
+    position: relative;
+}
+
+.teacher-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.teacher-item:active {
+    cursor: grabbing;
+}
+
+.teacher-item.dragging {
+    opacity: 0.5;
+    transform: scale(0.95);
+}
+
+.teacher-item .name {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.teacher-item .subject {
+    font-size: 11px;
+    opacity: 0.9;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 6px;
+    color: white !important;
+}
+
+.teacher-item .teacher-stats {
+    font-size: 10px;
+    opacity: 0.85;
+    margin-top: 5px;
+    color: white !important;
+}
+
+.teacher-item .delete-btn {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: all 0.2s;
+}
+
+.teacher-item .delete-btn:hover {
+    background: #ef4444;
+}
+
+/* ==================== DISCIPLINAS ESPECÍFICAS ==================== */
+.specific-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    margin-top: 4px;
+    margin-left: 5px;
+}
+
+.specific-subjects-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 15px;
+}
+
+.specific-table {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.specific-table th {
+    text-align: left;
+}
+
+.specific-table tr:hover {
+    background: #f8f9fa;
+}
+
+.btn-sm {
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #5a6268 0%, #3d4349 100%);
+}
+
+/* ==================== SUBJECT SELECTOR (POPUP) ==================== */
+.subject-selector {
+    position: absolute;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    min-width: 250px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1500;
+    display: none;
+}
+
+.subject-selector.active {
+    display: block;
+}
+
+.subject-selector-header {
+    padding: 12px 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 13px;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+}
+
+.subject-selector-header strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.subject-selector-header small {
+    opacity: 0.9;
+    font-size: 11px;
+}
+
+.subject-option {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+.subject-option:hover {
+    background: #f0f4ff;
+}
+
+.subject-option:last-child {
+    border-bottom: none;
+}
+
+.subject-option.principal {
+    background: #ecfdf5;
+    font-weight: 600;
+    color: #059669;
+}
+
+.subject-option.principal:hover {
+    background: #d1fae5;
+}
+
+.subject-option.specific {
+    background: #e0e7ff;
+    border-left: 3px solid #6366f1;
+}
+
+.subject-option.specific:hover {
+    background: #c7d2fe;
+}
+
+.subject-option.disabled {
+    color: #999;
+    cursor: not-allowed;
+    font-style: italic;
+}
+
+/* ==================== CONTAINER PRINCIPAL ==================== */
+.main-container {
+    flex: 1;
+    margin-left: 350px;
+    padding: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.header p {
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+.controls {
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: #10b981;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #059669;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+.btn-warning {
+    background: #f59e0b;
+    color: white;
+}
+
+.btn-warning:hover {
+    background: #d97706;
+}
+
+.btn-info {
+    background: #06b6d4;
+    color: white;
+}
+
+.btn-info:hover {
+    background: #0891b2;
+}
+
+.tabs {
+    display: flex;
+    background: #f8f9fa;
+    padding: 0 15px;
+    gap: 3px;
+    overflow-x: auto;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.tab {
+    padding: 12px 20px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    color: #6c757d;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.tab.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+    background: white;
+}
+
+.tab:hover {
+    color: #667eea;
+}
+
+.schedule-container {
+    padding: 15px;
+    overflow: auto;
+    flex: 1;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1200px;
+}
+
+.schedule-table th {
+    background: #667eea;
+    color: white;
+    padding: 10px 5px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.schedule-table td {
+    border: 1px solid #dee2e6;
+    padding: 3px;
+    text-align: center;
+    vertical-align: top;
+    height: 70px;
+    min-width: 90px;
+}
+
+.time-cell {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+    white-space: nowrap;
+    font-size: 11px;
+    min-width: 80px !important;
+}
+
+.class-cell {
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.class-cell:hover {
+    background: #f0f4ff;
+}
+
+.class-cell.dragover {
+    background: #dbeafe;
+    border: 2px dashed #667eea;
+}
+
+.lesson-card {
+    color: white;
+    padding: 8px 6px;
+    border-radius: 6px;
+    font-size: 10px;
+    cursor: grab;
+    margin: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+    position: relative;
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lesson-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.lesson-card:active {
+    cursor: grabbing;
+}
+
+.lesson-card.dragging {
+    opacity: 0.5;
+}
+
+.lesson-card .subject-name {
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 11px;
+    line-height: 1.2;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.lesson-card .teacher-name {
+    opacity: 0.95;
+    font-size: 10px;
+    font-weight: 500;
+    color: white;
+}
+
+/* NOVO: Professor em destaque, matéria menor */
+.lesson-card .teacher-name-main {
+    font-weight: 800;
+    font-size: 13px;
+    line-height: 1.2;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    margin-bottom: 3px;
+}
+
+.lesson-card .subject-name-sub {
+    font-size: 9px;
+    font-weight: 400;
+    opacity: 0.85;
+    color: white;
+    line-height: 1.2;
+}
+
+.lesson-card .remove-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.lesson-card:hover .remove-btn {
+    display: flex;
+}
+
+.lesson-card.conflict {
+    animation: pulse 1s infinite;
+    border: 2px solid #000;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.interval-row {
+    background: #fef3c7 !important;
+}
+
+.interval-cell {
+    background: #fef3c7 !important;
+    font-weight: bold;
+    color: #92400e;
+    font-size: 12px;
+}
+
+/* ==================== MODAL ==================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content.large {
+    max-width: 900px;
+}
+
+.modal-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    color: #667eea;
+    font-size: 20px;
+}
+
+.modal-close {
+    background: #ef4444;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: #dc2626;
+}
+
+.modal-body {
+    padding: 10px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-buttons .btn {
+    flex: 1;
+    justify-content: center;
+}
+
+/* ==================== COLOR PICKER ==================== */
+#colorPicker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.color-option {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.color-option:hover {
+    transform: scale(1.05);
+}
+
+.color-option.selected {
+    border: 3px solid #000;
+    transform: scale(1.1);
+}
+
+/* ==================== ALERTAS ==================== */
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    z-index: 3000;
+    animation: slideIn 0.3s ease;
+    max-width: 350px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.alert-success {
+    background: #10b981;
+}
+
+.alert-error {
+    background: #ef4444;
+}
+
+.alert-warning {
+    background: #f59e0b;
+}
+
+.alert-info {
+    background: #06b6d4;
+}
+
+/* ==================== STATS BAR ==================== */
+.stats-bar {
+    display: flex;
+    gap: 20px;
+    padding: 10px 20px;
+    background: #e0e7ff;
+    font-size: 13px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-item strong {
+    color: #667eea;
+}
+
+/* ==================== CONFLICT INDICATOR ==================== */
+.conflict-indicator {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 10px 20px;
+    display: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.conflict-indicator.active {
+    display: flex;
+}
+
+.conflict-indicator .icon {
+    font-size: 20px;
+}
+
+.conflict-indicator .text {
+    color: #dc2626;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/* ==================== PÁGINAS ==================== */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* ==================== RELATÓRIO ==================== */
+.report-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+}
+
+.report-header h1 {
+    font-size: 22px;
+}
+
+.report-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+/* ==================== CARDS DE RESUMO E PROFESSORES ==================== */
+.summary-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+}
+
+.summary-card .number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 5px;
+}
+
+.summary-card .label {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Card especial de total (fundo roxo) com contraste corrigido */
+.summary-card.total-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.summary-card.total-card .number {
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.summary-card.total-card .label {
+    color: white !important;
+    opacity: 0.95;
+}
+
+.report-filters {
+    display: flex;
+    gap: 20px;
+    padding: 15px 20px;
+    background: white;
+    border-bottom: 2px solid #e9ecef;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #495057;
+}
+
+.filter-group select {
+    padding: 8px 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.filter-group select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.report-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.report-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* ==================== CARDS DE PROFESSORES NO RELATÓRIO (CONTRASTE CORRIGIDO) ==================== */
+.teacher-report-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.teacher-report-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.teacher-report-header {
+    padding: 20px;
+    color: white !important;
+}
+
+.teacher-report-header .name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.teacher-report-header .subject {
+    font-size: 14px;
+    opacity: 0.95;
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.teacher-report-body {
+    padding: 15px;
+}
+
+.teacher-stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.teacher-stat-row:last-child {
+    border-bottom: none;
+}
+
+.teacher-stat-row .label {
+    font-size: 14px;
+    color: #555;
+}
+
+.teacher-stat-row .value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+/* Estilo especial para a linha de total semanal com contraste perfeito */
+.teacher-stat-row.total-row {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    margin: 8px -15px !important;
+    padding: 12px 15px !important;
+    border-bottom: none !important;
+}
+
+.teacher-stat-row.total-row .label,
+.teacher-stat-row.total-row .value {
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.teacher-stat-row.total-row .value.highlight {
+    font-size: 24px !important;
+}
+
+.specific-count {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+/* ==================== DETALHES DO PROFESSOR ==================== */
+.class-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.class-badge {
+    background: #667eea;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.day-schedule {
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.day-schedule-header {
+    background: #667eea;
+    color: white;
+    padding: 10px 15px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.day-schedule-items {
+    padding: 10px;
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    background: white;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.schedule-item:last-child {
+    margin-bottom: 0;
+}
+
+.schedule-item .time {
+    color: #6c757d;
+    font-size: 12px;
+}
+
+/* ==================== EMPTY STATES ==================== */
+.empty-teachers {
+    text-align: center;
+    color: #6c757d;
+    padding: 30px 15px;
+    font-size: 13px;
+}
+
+/* ==================== RESPONSIVO ==================== */
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 300px;
+    }
+
+    .main-container {
+        margin-left: 300px;
+    }
+}
+
+@media (max-width: 992px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+        max-height: 40vh;
+    }
+
+    .main-container {
+        margin-left: 0;
+    }
+
+    .report-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .controls {
+        justify-content: center;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .tabs {
+        justify-content: flex-start;
+    }
+
+    .tab {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-row .form-group {
+        width: 100%;
+    }
+
+    .report-filters {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .filter-group select {
+        flex: 1;
+    }
+}
+
+@media (max-width: 576px) {
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .header p {
+        font-size: 12px;
+    }
+
+    .stats-bar {
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px 15px;
+    }
+
+    .report-summary {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .summary-card {
+        padding: 15px;
+    }
+
+    .summary-card .number {
+        font-size: 24px;
+    }
+}
+
+/* ==================== IMPRESSÃO ==================== */
+#print-container {
+    display: none;
+}
+
+@media print {
+    @page {
+        size: landscape;
+        margin: 5mm;
+    }
+
+    /* Esconder tudo exceto o container de impressão */
+    .sidebar,
+    .main-container,
+    .modal,
+    .controls,
+    .tabs,
+    .stats-bar,
+    .conflict-indicator,
+    #timeSlotsModal,
+    #classScheduleModal,
+    .alert {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        zoom: 0.65;
+        /* Scale down to fit 5 days if needed, though we break pages */
+    }
+
+    #print-container {
+        display: block !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: white;
+        z-index: 9999;
+    }
+
+    .print-day-page {
+        page-break-after: always;
+        break-after: page;
+        margin-bottom: 30px;
+    }
+
+    .print-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .print-header h1 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .print-header h2 {
+        font-size: 18px;
+        color: #666;
+    }
+
+    /* Estilos específicos para a tabela na impressão */
+    .schedule-table {
+        min-width: auto;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .schedule-table th {
+        background: #667eea !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 5px;
+        font-size: 11px;
+        color: white !important;
+    }
+
+    .schedule-table td {
+        height: auto !important;
+        padding: 2px !important;
+    }
+
+    .lesson-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        font-size: 9px !important;
+        padding: 2px 4px !important;
+        min-height: auto !important;
+    }
+
+    .lesson-card .subject-name {
+        font-size: 10px !important;
+        margin-bottom: 2px !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .lesson-card .teacher-name {
+        font-size: 9px !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .lesson-card .teacher-name-main {
+        font-size: 11px !important;
+        font-weight: 800 !important;
+        margin-bottom: 2px !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .lesson-card .subject-name-sub {
+        font-size: 8px !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .lesson-card .remove-btn {
+        display: none !important;
+    }
+
+    /* Garantir que as cores de fundo dos cards apareçam */
+    .lesson-card {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+/* ==================== SCROLLBAR CUSTOMIZADA ==================== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Para Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+/* ==================== SISTEMA DE CADEADO ==================== */
+.lock-btn {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: all 0.2s;
+    opacity: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.class-cell:hover .lock-btn {
+    opacity: 1;
+}
+
+.lock-btn.locked {
+    opacity: 1;
+    background: rgba(245, 158, 11, 0.9);
+    border-color: #d97706;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.lock-btn:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+.lesson-card.locked {
+    border: 2px solid #f59e0b !important;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.4) !important;
+}
+
+.lesson-card.locked .remove-btn {
+    display: none !important;
+}
+
+/* ==================== MODAL DE DISTRIBUIÇÃO AUTOMÁTICA ==================== */
+#autoScheduleModal .modal-content {
+    max-height: 90vh;
+}
+
+@media print {
+    .lock-btn {
+        display: none !important;
+    }
+    .lesson-card.locked {
+        border: none !important;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+    }
+}
+
+/* ==================== CLUBE/TUTORIA - CARD BRANCO ==================== */
+.lesson-card.clube-tutoria {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.lesson-card.clube-tutoria .teacher-name-main {
+    color: #475569 !important;
+    text-shadow: none !important;
+    font-size: 12px;
+}
+
+.lesson-card.clube-tutoria .subject-name-sub {
+    color: #94a3b8 !important;
+    font-size: 9px;
+}
+
+.lesson-card.clube-tutoria .remove-btn {
+    background: rgba(0, 0, 0, 0.1);
+    color: #64748b;
+}
+
+.lesson-card.clube-tutoria .remove-btn:hover {
+    background: #ef4444;
+    color: white;
+}

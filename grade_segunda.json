@@ -1,0 +1,410 @@
+{
+    "schedule": {
+        "segunda": {
+            "1": {
+                "202": {
+                    "subject": "Matemática",
+                    "teacher": "Rogério",
+                    "teacherIdx": 0
+                },
+                "101": {
+                    "subject": "Educação Física",
+                    "teacher": "Ed. Física",
+                    "teacherIdx": 0
+                },
+                "302": {
+                    "subject": "Arte",
+                    "teacher": "Kelso",
+                    "teacherIdx": 0
+                },
+                "103": {
+                    "subject": "Língua Inglesa",
+                    "teacher": "Vanessa",
+                    "teacherIdx": 0
+                },
+                "301": {
+                    "subject": "História",
+                    "teacher": "Elenflávia",
+                    "teacherIdx": 0
+                },
+                "104": {
+                    "subject": "Biologia",
+                    "teacher": "Biologia",
+                    "teacherIdx": 0
+                },
+                "204": {
+                    "subject": "Geografia",
+                    "teacher": "Lucílio",
+                    "teacherIdx": 0
+                }
+            },
+            "2": {
+                "104": {
+                    "subject": "Arte",
+                    "teacher": "Kelso",
+                    "teacherIdx": 0
+                },
+                "201": {
+                    "subject": "História",
+                    "teacher": "Elenflávia",
+                    "teacherIdx": 0
+                },
+                "302": {
+                    "subject": "Língua Inglesa",
+                    "teacher": "Vanessa",
+                    "teacherIdx": 0
+                },
+                "204": {
+                    "subject": "Educação Física",
+                    "teacher": "Ed. Física",
+                    "teacherIdx": 0
+                },
+                "202": {
+                    "subject": "Língua Portuguesa",
+                    "teacher": "Eunice",
+                    "teacherIdx": 0
+                },
+                "301": {
+                    "subject": "Língua Portuguesa",
+                    "teacher": "Eliana",
+                    "teacherIdx": 0
+                },
+                "102": {
+                    "subject": "Biologia",
+                    "teacher": "Biologia",
+                    "teacherIdx": 0
+                },
+                "103": {
+                    "subject": "Língua Portuguesa",
+                    "teacher": "Port 1",
+                    "teacherIdx": 0
+                },
+                "101": {
+                    "subject": "Geografia",
+                    "teacher": "Lucílio",
+                    "teacherIdx": 0
+                }
+            },
+            "3": {
+                "203": {
+                    "subject": "Língua Portuguesa",
+                    "teacher": "Eunice",
+                    "teacherIdx": 0
+                },
+                "102": {
+                    "subject": "Língua Portuguesa",
+                    "teacher": "Port 1",
+                    "teacherIdx": 0
+                },
+                "302": {
+                    "subject": "História",
+                    "teacher": "Elenflávia",
+                    "teacherIdx": 0
+                },
+                "204": {
+                    "subject": "Matemática",
+                    "teacher": "Milton",
+                    "teacherIdx": 0
+                },
+                "103": {
+                    "subject": "Biologia",
+                    "teacher": "Biologia",
+                    "teacherIdx": 0
+                },
+                "104": {
+                    "subject": "Língua Inglesa",
+                    "teacher": "Vanessa",
+                    "teacherIdx": 0
+                },
+                "301": {
+                    "subject": "Educação Física",
+                    "teacher": "Ed. Física",
+                    "teacherIdx": 0
+                },
+                "202": {
+                    "subject": "Geografia",
+                    "teacher": "Lucílio",
+                    "teacherIdx": 0
+                },
+                "201": {
+                    "subject": "Arte",
+                    "teacher": "Kelso",
+                    "teacherIdx": 0
+                }
+            },
+            "4": {
+                "204": {
+                    "subject": "Arte",
+                    "teacher": "Kelso",
+                    "teacherIdx": 0
+                },
+                "201": {
+                    "subject": "Língua Inglesa",
+                    "teacher": "Vanessa",
+                    "teacherIdx": 0
+                },
+                "102": {
+                    "subject": "Matemática",
+                    "teacher": "Lucidalva",
+                    "teacherIdx": 0
+                },
+                "302": {
+                    "subject": "Língua Portuguesa",
+                    "teacher": "Eliana",
+                    "teacherIdx": 0
+                },
+                "202": {
+                    "subject": "História",
+                    "teacher": "Elenflávia",
+                    "teacherIdx": 0
+                },
+                "104": {
+                    "subject": "Educação Física",
+                    "teacher": "Ed. Física",
+                    "teacherIdx": 0
+                },
+                "103": {
+                    "subject": "Geografia",
+                    "teacher": "Lucílio",
+                    "teacherIdx": 0
+                },
+                "301": {
+                    "subject": "Matemática",
+                    "teacher": "Luiz",
+                    "teacherIdx": 0
+                },
+                "101": {
+                    "subject": "Biologia",
+                    "teacher": "Biologia",
+                    "teacherIdx": 0
+                }
+            },
+            "5": {
+                "302": {
+                    "subject": "Biologia",
+                    "teacher": "Biologia",
+                    "teacherIdx": 0
+                },
+                "201": {
+                    "subject": "Língua Portuguesa",
+                    "teacher": "Port 2",
+                    "teacherIdx": 0
+                },
+                "204": {
+                    "subject": "Língua Inglesa",
+                    "teacher": "Vanessa",
+                    "teacherIdx": 0
+                },
+                "301": {
+                    "subject": "Geografia",
+                    "teacher": "Lucílio",
+                    "teacherIdx": 0
+                },
+                "104": {
+                    "subject": "Técnico",
+                    "teacher": "Marília",
+                    "teacherIdx": 0
+                },
+                "102": {
+                    "subject": "Educação Física",
+                    "teacher": "Ed. Física",
+                    "teacherIdx": 0
+                },
+                "202": {
+                    "subject": "Arte",
+                    "teacher": "Kelso",
+                    "teacherIdx": 0
+                },
+                "103": {
+                    "subject": "Matemática",
+                    "teacher": "Lucidalva",
+                    "teacherIdx": 0
+                },
+                "101": {
+                    "subject": "História",
+                    "teacher": "Elenflávia",
+                    "teacherIdx": 0
+                }
+            },
+            "6": {
+                "102": {
+                    "subject": "Língua Inglesa",
+                    "teacher": "Vanessa",
+                    "teacherIdx": 0
+                },
+                "101": {
+                    "subject": "Arte",
+                    "teacher": "Kelso",
+                    "teacherIdx": 0
+                },
+                "302": {
+                    "subject": "Matemática",
+                    "teacher": "Milton",
+                    "teacherIdx": 0
+                },
+                "104": {
+                    "subject": "História",
+                    "teacher": "Elenflávia",
+                    "teacherIdx": 0
+                },
+                "204": {
+                    "subject": "Técnico",
+                    "teacher": "Marília",
+                    "teacherIdx": 0
+                },
+                "301": {
+                    "subject": "Biologia",
+                    "teacher": "Biologia",
+                    "teacherIdx": 0
+                },
+                "103": {
+                    "subject": "Educação Física",
+                    "teacher": "Ed. Física",
+                    "teacherIdx": 0
+                },
+                "201": {
+                    "subject": "Geografia",
+                    "teacher": "Lucílio",
+                    "teacherIdx": 0
+                }
+            },
+            "7": {
+                "104": {
+                    "subject": "Língua Portuguesa",
+                    "teacher": "Port 2",
+                    "teacherIdx": 0
+                },
+                "302": {
+                    "subject": "Geografia",
+                    "teacher": "Lucílio",
+                    "teacherIdx": 0
+                },
+                "203": {
+                    "subject": "Matemática",
+                    "teacher": "Milton",
+                    "teacherIdx": 0
+                },
+                "202": {
+                    "subject": "Biologia",
+                    "teacher": "Biologia",
+                    "teacherIdx": 0
+                },
+                "201": {
+                    "subject": "Educação Física",
+                    "teacher": "Ed. Física",
+                    "teacherIdx": 0
+                },
+                "102": {
+                    "subject": "Arte",
+                    "teacher": "Kelso",
+                    "teacherIdx": 0
+                },
+                "204": {
+                    "subject": "Língua Portuguesa",
+                    "teacher": "Eunice",
+                    "teacherIdx": 0
+                },
+                "301": {
+                    "subject": "Língua Inglesa",
+                    "teacher": "Vanessa",
+                    "teacherIdx": 0
+                },
+                "101": {
+                    "subject": "Matemática",
+                    "teacher": "Lucidalva",
+                    "teacherIdx": 0
+                },
+                "103": {
+                    "subject": "História",
+                    "teacher": "Elenflávia",
+                    "teacherIdx": 0
+                }
+            },
+            "8": {
+                "103": {
+                    "subject": "Arte",
+                    "teacher": "Kelso",
+                    "teacherIdx": 0
+                },
+                "202": {
+                    "subject": "Língua Inglesa",
+                    "teacher": "Vanessa",
+                    "teacherIdx": 0
+                },
+                "201": {
+                    "subject": "Biologia",
+                    "teacher": "Biologia",
+                    "teacherIdx": 0
+                },
+                "302": {
+                    "subject": "Educação Física",
+                    "teacher": "Ed. Física",
+                    "teacherIdx": 0
+                },
+                "204": {
+                    "subject": "História",
+                    "teacher": "Elenflávia",
+                    "teacherIdx": 0
+                },
+                "101": {
+                    "subject": "Língua Portuguesa",
+                    "teacher": "Port 1",
+                    "teacherIdx": 0
+                },
+                "102": {
+                    "subject": "Geografia",
+                    "teacher": "Lucílio",
+                    "teacherIdx": 0
+                },
+                "104": {
+                    "subject": "Matemática",
+                    "teacher": "Luiz",
+                    "teacherIdx": 0
+                }
+            },
+            "9": {
+                "101": {
+                    "subject": "Língua Inglesa",
+                    "teacher": "Vanessa",
+                    "teacherIdx": 0
+                },
+                "104": {
+                    "subject": "Geografia",
+                    "teacher": "Lucílio",
+                    "teacherIdx": 0
+                },
+                "301": {
+                    "subject": "Arte",
+                    "teacher": "Kelso",
+                    "teacherIdx": 0
+                },
+                "202": {
+                    "subject": "Educação Física",
+                    "teacher": "Ed. Física",
+                    "teacherIdx": 0
+                },
+                "201": {
+                    "subject": "Matemática",
+                    "teacher": "Rogério",
+                    "teacherIdx": 0
+                },
+                "204": {
+                    "subject": "Biologia",
+                    "teacher": "Biologia",
+                    "teacherIdx": 0
+                },
+                "102": {
+                    "subject": "História",
+                    "teacher": "Elenflávia",
+                    "teacherIdx": 0
+                }
+            }
+        }
+    },
+    "teachers_off_monday": [
+        "Edmundo",
+        "Cassiano",
+        "Filosofia",
+        "Física"
+    ]
+}
