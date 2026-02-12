@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Grade de Horários</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Sidebar de Professores -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>👨‍🏫 Professores</h2>
+            <p>Clique para detalhes | Arraste para a grade</p>
+        </div>
+
+        <div class="sidebar-controls">
+            <input type="text" class="search-box" id="searchTeacher" placeholder="🔍 Buscar professor...">
+            <button class="btn btn-primary" style="width: 100%;">➕ Cadastrar Novo Professor</button>
+            <button class="btn btn-secondary" style="width: 100%; margin-top: 8px;">📚 Itinerários Formativos</button>
+            <button class="btn btn-warning" id="btnRestrictions" style="width: 100%; margin-top: 8px;">🚫 Restrições de
+                Horário</button>
+            <button class="btn btn-success" id="btnGapsReport" style="width: 100%; margin-top: 8px;">📊 Relatório de Lacunas</button>
+            <button class="btn btn-info" id="btnConfigTimeSlots" style="width: 100%; margin-top: 8px;">⏰ Configurar
+                Horários</button>
+            <button class="btn btn-danger" id="btnDeleteAllTeachers" style="width: 100%; margin-top: 8px;">
+                🗑️ Excluir Todos os Professores
+            </button>
+        </div>
+
+        <div class="teachers-container">
+            <h3>📋 Lista <span class="teacher-count" id="teacherCount">0</span></h3>
+            <div id="teachersList"></div>
+        </div>
+    </div>
+
+    <!-- Container Principal -->
+    <div class="main-container">
+        <div class="container">
+            <!-- PÁGINA DA GRADE -->
+            <div id="schedulePage" class="page active">
+                <div class="header">
+                    <h1>🎓 Sistema de Grade de Horários</h1>
+                    <p>Escola de Ensino Médio - Turno Integral (7h30 - 16h30)</p>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-item">📚 <strong id="totalLessons">0</strong> aulas atribuídas</div>
+                    <div class="stat-item">👥 <strong id="totalTeachers">0</strong> professores</div>
+                    <div class="stat-item">⚠️ <strong id="totalConflicts">0</strong> conflitos</div>
+                </div>
+
+                <div class="conflict-indicator" id="conflictIndicator">
+                    <span class="icon">⚠️</span>
+                    <span class="text">Existem conflitos de horário! Verifique os cards em vermelho.</span>
+                </div>
+
+                <!-- ✅ NOVOS CONTROLES DE VISUALIZAÇÃO -->
+                <div class="controls">
+                    <!-- Botão de Toggle de Modo -->
+                    <button class="btn btn-info" id="btnToggleView" style="font-weight: bold; padding: 12px 20px;">
+                        📅 Modo: Geral
+                    </button>
+
+                    <!-- Seletor de Turma (visível apenas no modo turma) -->
+                    <div id="classSelector" style="display: none; align-items: center; gap: 10px; 
+                                                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                                                    padding: 10px 15px; border-radius: 10px; color: white;">
+                        <label style="font-weight: bold; margin: 0;">🏫 Turma:</label>
+                        <select id="classSelectorDropdown" style="padding: 8px 12px; border-radius: 6px; border: none; 
+                                       font-size: 14px; font-weight: bold; min-width: 100px;">
+                        </select>
+                    </div>
+
+                    <button class="btn btn-info" id="btnShowReport">📊 Relatório de Professores</button>
+                    <button class="btn btn-success" id="btnExport">💾 Exportar JSON</button>
+                    <button class="btn btn-warning" id="btnImport">📂 Importar JSON</button>
+                    <button class="btn btn-primary" id="btnDownloadModel">📄 Modelo JSON</button>
+                    <button class="btn btn-primary" id="btnDownloadExample">📋 Exemplo Completo</button>
+                    <button class="btn btn-info" id="btnCloudSyncNow">☁️ Sincronizar Agora</button>
+
+                    <div
+                        style="display: inline-flex; align-items: center; gap: 5px; margin: 0 5px; background: rgba(255,255,255,0.5); padding: 5px 10px; border-radius: 5px; border: 1px solid #ddd;">
+                        <input type="checkbox" id="chkMorningOnly" style="cursor: pointer; width: 16px; height: 16px;">
+                        <label for="chkMorningOnly"
+                            style="cursor: pointer; font-size: 13px; font-weight: bold; color: #333;">☀️ Apenas
+                            Manhã</label>
+                    </div>
+
+                    <button class="btn btn-primary" id="btnPrint">🖨️ Imprimir</button>
+                    <button class="btn btn-secondary" id="btnClassSchedule">📅 Horário por Turma</button>
+                    <button class="btn btn-success" id="btnAutoSchedule"
+                        style="font-weight: bold; padding: 12px 20px; font-size: 14px;">
+                        🤖 Distribuição Automática
+                    </button>
+                    <button class="btn btn-danger" id="btnClear">🗑️ Limpar Grade</button>
+                </div>
+
+                <!-- Tabs de Dias (visível apenas no modo geral) -->
+                <div class="tabs">
+                    <button class="tab active" data-day="segunda">Segunda-feira</button>
+                    <button class="tab" data-day="terca">Terça-feira</button>
+                    <button class="tab" data-day="quarta">Quarta-feira</button>
+                    <button class="tab" data-day="quinta">Quinta-feira</button>
+                    <button class="tab" data-day="sexta">Sexta-feira</button>
+                </div>
+
+                <div class="schedule-container">
+                    <div id="schedule-content"></div>
+                </div>
+            </div>
+
+            <!-- PÁGINA DE RELATÓRIO -->
+            <div id="reportPage" class="page">
+                <div class="report-header">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                        <h1>📊 Relatório de Professores</h1>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-success" id="btnGeneratePDF" style="padding: 12px 20px;">
+                                📄 Gerar PDF Completo
+                            </button>
+                            <button class="btn btn-primary" id="btnBackToSchedule">
+                                ← Voltar para Grade
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-summary" id="reportSummary"></div>
+
+                <div class="report-filters">
+                    <div class="filter-group">
+                        <label>Filtrar por disciplina:</label>
+                        <select id="filterSubject">
+                            <option value="">Todas</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Ordenar por:</label>
+                        <select id="sortReport">
+                            <option value="name">Nome</option>
+                            <option value="lessons">Carga Horária Total</option>
+                            <option value="subject">Disciplina</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="report-content">
+                    <div class="report-grid" id="reportGrid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subject Selector -->
+    <div id="subjectSelector" class="subject-selector"></div>
+
+    <!-- Modal Cadastro Professor - COM MÚLTIPLAS CONFIGURAÇÕES -->
+    <div id="teacherModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2 id="teacherModalTitle">👨‍🏫 Cadastrar Professor</h2>
+                <button class="modal-close" data-modal="teacherModal">×</button>
+            </div>
+
+            <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+                <!-- Dados básicos do professor -->
+                <div class="form-row" style="display: flex; gap: 15px; margin-bottom: 15px;">
+                    <div class="form-group" style="flex: 2;">
+                        <label>Nome Completo:</label>
+                        <input type="text" id="teacherName" placeholder="Ex: Maria Silva Santos">
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>Disciplina Principal:</label>
+                        <select id="teacherSubject">
+                            <option value="">Selecione...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Feedback de professor existente -->
+                <div id="teacherNameFeedback"></div>
+
+                <!-- Cor do professor -->
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label>Cor do Professor:</label>
+                    <div id="colorPicker" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;"></div>
+                    <input type="hidden" id="selectedColor" value="">
+                </div>
+
+                <hr style="border: none; border-top: 2px solid #e0e0e0; margin: 20px 0;">
+
+                <!-- Título da seção de configurações -->
+                <div style="margin-bottom: 15px;">
+                    <h3 style="color: #667eea; margin-bottom: 10px;">📚 Configurações de Carga Horária</h3>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 15px;">
+                        Adicione diferentes configurações para grupos de turmas.
+                        Ex: 2 aulas/semana para 1º anos e 1 aula/semana para 2º e 3º anos.
+                    </p>
+                </div>
+
+                <!-- Container das configurações de carga horária -->
+                <div id="workloadConfigsContainer"></div>
+
+                <!-- Botão para adicionar mais configurações -->
+                <button type="button" class="btn btn-secondary" id="btnAddWorkloadConfig"
+                    style="width: 100%; margin-top: 10px; padding: 12px;">
+                    ➕ Adicionar outra configuração de carga horária
+                </button>
+
+                <!-- Preview do total de carga horária -->
+                <div id="totalWorkloadPreview" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                     color: white; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <div style="text-align: center; margin-bottom: 15px;">
+                        <div style="font-size: 14px; opacity: 0.9;">🕐 CARGA HORÁRIA TOTAL SEMANAL</div>
+                        <div style="font-size: 36px; font-weight: bold;" id="totalHoursDisplay">0h</div>
+                    </div>
+                    <div id="workloadBreakdown" style="font-size: 13px; opacity: 0.9;"></div>
+                </div>
+            </div>
+
+            <div class="modal-buttons" style="margin-top: 20px;">
+                <button class="btn btn-success" id="btnSaveTeacher">✅ Salvar Professor</button>
+                <button class="btn btn-danger" data-modal="teacherModal">❌ Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Itinerários Formativos -->
+    <div id="specificSubjectsModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>📚 Itinerários Formativos (Carga Horária Extra)</h2>
+                <button class="modal-close" data-modal="specificSubjectsModal">×</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 15px; color: #666;">
+                    Cadastre os Itinerários Formativos para cada professor por turma (Aprofundamento de
+                    Natureza/Humanas/Linguagens/Matemática, Projeto de Vida, Eletiva, PPA, Estudo Orientado, etc.).
+                </p>
+
+                <div class="form-row"
+                    style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; align-items: flex-end;">
+                    <div class="form-group" style="flex: 2; min-width: 200px;">
+                        <label>Professor:</label>
+                        <select id="specificTeacher">
+                            <option value="">Selecione o professor...</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex: 1.5; min-width: 150px;">
+                        <label>Disciplina Específica:</label>
+                        <select id="specificSubject">
+                            <option value="">Selecione...</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex: 1; min-width: 120px;">
+                        <label>Turma:</label>
+                        <select id="specificClass">
+                            <option value="all">Todas as Turmas</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex: 0.8; min-width: 100px;">
+                        <label>Aulas/Semana:</label>
+                        <input type="number" id="specificHours" min="1" max="20" value="1"
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+                    </div>
+                    <div class="form-group" style="display: flex; align-items: flex-end;">
+                        <button class="btn btn-success" id="btnAddSpecific">➕ Adicionar</button>
+                    </div>
+                </div>
+
+                <!-- Resumo de carga horária -->
+                <div id="teacherWorkloadSummary" style="display: none; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                     color: white; padding: 15px 20px; border-radius: 10px; margin-bottom: 20px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                        <div>
+                            <strong id="summaryTeacherName" style="font-size: 16px; color: white;"></strong>
+                            <div style="font-size: 13px; opacity: 0.9; color: white;" id="summaryTeacherSubject"></div>
+                        </div>
+                        <div style="display: flex; gap: 20px; text-align: center; flex-wrap: wrap;">
+                            <div>
+                                <div style="font-size: 22px; font-weight: bold; color: white;"
+                                    id="summaryPrincipalHours">0</div>
+                                <div style="font-size: 10px; opacity: 0.9; color: white;">Disciplina Principal</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 22px; font-weight: bold; color: white;" id="summaryExtraHours">0
+                                </div>
+                                <div style="font-size: 10px; opacity: 0.9; color: white;">Extras</div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 8px;">
+                                <div style="font-size: 28px; font-weight: bold; color: white;" id="summaryTotalHours">0
+                                </div>
+                                <div style="font-size: 10px; color: white;">TOTAL SEMANAL</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="specificSubjectsList" class="specific-subjects-list">
+                    <p style="text-align: center; color: #999;">Selecione um professor para ver suas disciplinas
+                        específicas</p>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-primary" data-modal="specificSubjectsModal">✅ Concluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Itinerários Formativos (para professor específico) -->
+    <div id="teacherItineraryModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>📚 Itinerários Formativos</h2>
+                <button class="modal-close" data-modal="teacherItineraryModal">×</button>
+            </div>
+            <div id="teacherItineraryContent"></div>
+            <div class="modal-buttons">
+                <button class="btn btn-primary" data-modal="teacherItineraryModal">✅ Concluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detalhes do Professor -->
+    <div id="teacherDetailModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2 id="detailModalTitle">📋 Detalhes do Professor</h2>
+                <button class="modal-close" data-modal="teacherDetailModal">×</button>
+            </div>
+            <div id="teacherDetailContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal Editar Professor -->
+    <div id="editTeacherModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>✏️ Editar Professor</h2>
+                <button class="modal-close" data-modal="editTeacherModal">×</button>
+            </div>
+            <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+                <div id="editTeacherContent"></div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-success" id="btnSaveEditTeacher">✅ Salvar Alterações</button>
+                <button class="btn btn-danger" data-modal="editTeacherModal">❌ Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar Carga Horária -->
+    <div id="editWorkloadModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚙️ Editar Carga Horária</h2>
+                <button class="modal-close" data-modal="editWorkloadModal">×</button>
+            </div>
+            <div id="editWorkloadContent"></div>
+            <div class="modal-buttons">
+                <button class="btn btn-success" id="btnSaveWorkload">✅ Salvar</button>
+                <button class="btn btn-danger" data-modal="editWorkloadModal">❌ Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Restrições de Horário -->
+    <div id="restrictionsModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>🚫 Restrições de Horário</h2>
+                <button class="modal-close" data-modal="restrictionsModal">×</button>
+            </div>
+            <div id="restrictionsContent"></div>
+            <div class="modal-buttons">
+                <button class="btn btn-primary" data-modal="restrictionsModal">✅ Concluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Relatório de Lacunas -->
+    <div id="gapsReportModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>📊 Relatório de Disciplinas Faltantes</h2>
+                <button class="modal-close" data-modal="gapsReportModal">×</button>
+            </div>
+            <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+                <div id="gapsReportContent"></div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-primary" data-modal="gapsReportModal">✅ Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Configuração de Horários -->
+    <div id="timeSlotsModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>⏰ Configurar Horários das Aulas</h2>
+                <button class="modal-close" data-modal="timeSlotsModal">×</button>
+            </div>
+            <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+                <p style="margin-bottom: 15px; color: #666;">
+                    Configure os horários de entrada e saída de cada aula. As alterações serão salvas automaticamente.
+                </p>
+
+                <div id="timeSlotsConfigList"></div>
+
+                <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 10px;">
+                    <button class="btn btn-warning" id="btnResetTimeSlots" style="width: 100%;">
+                        🔄 Restaurar Horários Padrão
+                    </button>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-success" id="btnSaveTimeSlots">✅ Salvar Alterações</button>
+                <button class="btn btn-danger" data-modal="timeSlotsModal">❌ Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <input type="file" id="fileInput" style="display: none;" accept=".json">
+
+    <!-- Modal Distribuição Automática -->
+    <div id="autoScheduleModal" class="modal">
+        <div class="modal-content large" style="width: 95%; max-width: 800px;">
+        </div>
+    </div>
+
+    <!-- Modal Visualização por Turma -->
+    <div id="classScheduleModal" class="modal">
+        <div class="modal-content large" style="width: 95%; max-width: 1200px;">
+            <div class="modal-header">
+                <h2>📅 Horário Semanal por Turma</h2>
+                <button class="modal-close" data-modal="classScheduleModal">×</button>
+            </div>
+            <div class="modal-body">
+                <div
+                    style="display: flex; gap: 20px; align-items: center; margin-bottom: 20px; background: #f8f9fa; padding: 15px; border-radius: 10px;">
+                    <div class="form-group" style="margin-bottom: 0; min-width: 200px;">
+                        <label style="font-weight: bold; margin-bottom: 5px; display: block;">Selecione a Turma:</label>
+                        <select id="classScheduleSelect"
+                            style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ddd;">
+                            <option value="">Selecione...</option>
+                        </select>
+                    </div>
+                    <div style="flex: 1;"></div>
+                    <button class="btn btn-primary" id="btnPrintClassSchedule">🖨️ Imprimir</button>
+                </div>
+
+                <div id="classScheduleContainer" style="overflow-x: auto;">
+                    <div style="text-align: center; color: #666; padding: 40px;">
+                        Selecione uma turma acima para visualizar o horário completo.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Biblioteca jsPDF para geração de PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Scripts da aplicação -->
+    <script src="config.js"></script>
+    <script src="teachers.js"></script>
+    <script src="initial_teachers.js"></script>
+    <script src="setup_restrictions.js"></script>
+    <script src="setup_specific_subjects.js"></script>
+    <script src="gaps_report.js"></script>
+    <script src="auto_schedule.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
