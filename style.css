@@ -1215,14 +1215,15 @@ body {
     .conflict-indicator,
     #timeSlotsModal,
     #classScheduleModal,
-    .alert {
+    .alert,
+    .daily-teacher-summary {
         display: none !important;
     }
 
     body {
         background: white;
-        zoom: 0.65;
-        /* Scale down to fit 5 days if needed, though we break pages */
+        zoom: 0.75;
+        /* Aumentado de 0.65 para 0.75 para melhor utilização da página */
     }
 
     #print-container {
@@ -1238,22 +1239,22 @@ body {
     .print-day-page {
         page-break-after: always;
         break-after: page;
-        margin-bottom: 30px;
+        margin-bottom: 0;
     }
 
     .print-header {
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .print-header h1 {
-        font-size: 24px;
+        font-size: 26px;
         color: #333;
         margin-bottom: 5px;
     }
 
     .print-header h2 {
-        font-size: 18px;
+        font-size: 20px;
         color: #666;
     }
 
@@ -1268,26 +1269,38 @@ body {
         background: #667eea !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
-        padding: 5px;
-        font-size: 11px;
+        padding: 8px 5px;
+        font-size: 13px;
         color: white !important;
     }
 
     .schedule-table td {
         height: auto !important;
-        padding: 2px !important;
+        padding: 3px !important;
+    }
+
+    .time-cell {
+        padding: 5px !important;
+    }
+
+    .time-cell strong {
+        font-size: 12px;
+    }
+
+    .time-cell small {
+        font-size: 10px;
     }
 
     .lesson-card {
         box-shadow: none;
         border: 1px solid #ddd;
-        font-size: 9px !important;
-        padding: 2px 4px !important;
+        font-size: 11px !important;
+        padding: 4px 6px !important;
         min-height: auto !important;
     }
 
     .lesson-card .subject-name {
-        font-size: 10px !important;
+        font-size: 12px !important;
         margin-bottom: 2px !important;
         color: white !important;
         -webkit-print-color-adjust: exact;
@@ -1295,14 +1308,14 @@ body {
     }
 
     .lesson-card .teacher-name {
-        font-size: 9px !important;
+        font-size: 11px !important;
         color: white !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
     }
 
     .lesson-card .teacher-name-main {
-        font-size: 11px !important;
+        font-size: 13px !important;
         font-weight: 800 !important;
         margin-bottom: 2px !important;
         color: white !important;
@@ -1311,7 +1324,7 @@ body {
     }
 
     .lesson-card .subject-name-sub {
-        font-size: 8px !important;
+        font-size: 10px !important;
         color: white !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
@@ -1410,6 +1423,7 @@ body {
     .lock-btn {
         display: none !important;
     }
+
     .lesson-card.locked {
         border: none !important;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;

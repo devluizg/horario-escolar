@@ -1,0 +1,3537 @@
+{
+  "schedule": {
+    "segunda": {
+      "1": {
+        "101": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "102": {
+          "subject": "Matemática",
+          "teacher": "LUCIDALVA",
+          "teacherIdx": 7
+        },
+        "103": {
+          "subject": "Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "104": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "201": {
+          "subject": "Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "202": {
+          "subject": "Educação Física",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "203": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "204": {
+          "subject": "Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "301": {
+          "subject": "Língua Inglesa",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "302": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "ELIANA",
+          "teacherIdx": 6
+        }
+      },
+      "2": {
+        "101": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "102": {
+          "subject": "Matemática",
+          "teacher": "LUCIDALVA",
+          "teacherIdx": 7
+        },
+        "103": {
+          "subject": "Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "104": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "201": {
+          "subject": "Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "202": {
+          "subject": "Educação Física",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "203": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "204": {
+          "subject": "Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "301": {
+          "subject": "Língua Inglesa",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "302": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "ELIANA",
+          "teacherIdx": 6
+        }
+      },
+      "3": {
+        "101": {
+          "subject": "Educação Ambiental",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "102": {
+          "subject": "Educação Física",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "103": {
+          "subject": "Filosofia",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "104": {
+          "subject": "Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "201": {
+          "subject": "Química",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "202": {
+          "subject": "Projeto de Vida",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "203": {
+          "subject": "Educação Ambiental",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "204": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "301": {
+          "subject": "Arte",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "302": {
+          "subject": "Língua Inglesa",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        }
+      },
+      "4": {
+        "101": {
+          "subject": "PPA",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "102": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "103": {
+          "subject": "Filosofia",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "104": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "201": {
+          "subject": "Química",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "202": {
+          "subject": "Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "203": {
+          "subject": "Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "204": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "301": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "ELIANA",
+          "teacherIdx": 6
+        },
+        "302": {
+          "subject": "Língua Inglesa",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        }
+      },
+      "5": {
+        "101": {
+          "subject": "PPA",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "102": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "103": {
+          "subject": "Práticas Experimentais",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "104": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "201": {
+          "subject": "Língua Inglesa",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "202": {
+          "subject": "Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "203": {
+          "subject": "Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "204": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "301": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "ELIANA",
+          "teacherIdx": 6
+        },
+        "302": {
+          "subject": "Práticas Experimentais",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        }
+      },
+      "6": {
+        "101": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "102": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "LUCIDALVA",
+          "teacherIdx": 7
+        },
+        "103": {
+          "subject": "Arte",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "104": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "201": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "202": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "203": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "204": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "301": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "302": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        }
+      },
+      "7": {
+        "101": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "102": {
+          "subject": "Matemática",
+          "teacher": "LUCIDALVA",
+          "teacherIdx": 7
+        },
+        "103": {
+          "subject": "Projeto de Vida",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "104": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "201": {
+          "subject": "Arte",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "202": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "203": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "204": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "301": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "302": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        }
+      },
+      "8": {
+        "101": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "LUCIDALVA",
+          "teacherIdx": 7
+        },
+        "102": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "103": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "104": {
+          "subject": "Arte",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "201": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "202": {
+          "subject": "PPA",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "203": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "204": {
+          "subject": "Educação Física",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "301": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "302": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        }
+      },
+      "9": {
+        "101": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "LUCIDALVA",
+          "teacherIdx": 7
+        },
+        "102": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "103": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "104": {
+          "subject": "Arte",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "201": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "202": {
+          "subject": "PPA",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "203": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "204": {
+          "subject": "Educação Física",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "301": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "302": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        }
+      }
+    },
+    "terca": {
+      "1": {
+        "101": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "102": {
+          "subject": "Química",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "103": {
+          "subject": "Sociologia",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "104": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "201": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "202": {
+          "subject": "Língua Inglesa",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "203": {
+          "subject": "Educação Física",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "204": {
+          "subject": "Arte",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "301": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "ELIANA",
+          "teacherIdx": 6
+        },
+        "302": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        }
+      },
+      "2": {
+        "101": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "102": {
+          "subject": "Química",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "103": {
+          "subject": "Sociologia",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "104": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "201": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "202": {
+          "subject": "Filosofia",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "203": {
+          "subject": "Educação Física",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "204": {
+          "subject": "Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "301": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "ELIANA",
+          "teacherIdx": 6
+        },
+        "302": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        }
+      },
+      "3": {
+        "101": {
+          "subject": "Práticas Experimentais",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "102": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "103": {
+          "subject": "Língua Inglesa",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "104": {
+          "subject": "Filosofia",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "201": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "202": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "203": {
+          "subject": "Arte",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "204": {
+          "subject": "Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "301": {
+          "subject": "Sociologia",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "302": {
+          "subject": "Projeto de Vida",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        }
+      },
+      "4": {
+        "101": {
+          "subject": "Sociologia",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "102": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "103": {
+          "subject": "Química",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "104": {
+          "subject": "Filosofia",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "201": {
+          "subject": "Educação Física",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "202": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "203": {
+          "subject": "Língua Inglesa",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "204": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "301": {
+          "subject": "Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "302": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "ELIANA",
+          "teacherIdx": 6
+        }
+      },
+      "5": {
+        "101": {
+          "subject": "Sociologia",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "102": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "103": {
+          "subject": "Química",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "104": {
+          "subject": "Língua Inglesa",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "201": {
+          "subject": "Educação Física",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "202": {
+          "subject": "Educação Ambiental",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "203": {
+          "subject": "Projeto de Vida",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "204": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "301": {
+          "subject": "Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "302": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "ELIANA",
+          "teacherIdx": 6
+        }
+      },
+      "6": {
+        "101": {
+          "subject": "Química",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "102": {
+          "subject": "Arte",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "103": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "104": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "201": {
+          "subject": "Eletiva",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "202": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "203": {
+          "subject": "PPA",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "204": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "301": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "302": {
+          "subject": "PPA",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        }
+      },
+      "7": {
+        "101": {
+          "subject": "Química",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "102": {
+          "subject": "Arte",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "103": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "104": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "201": {
+          "subject": "Eletiva",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "202": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "203": {
+          "subject": "PPA",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "204": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "301": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "302": {
+          "subject": "PPA",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        }
+      },
+      "8": {
+        "101": {
+          "subject": "Eletiva",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "102": {
+          "subject": "Eletiva",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "103": {
+          "subject": "Eletiva",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "104": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "201": {
+          "subject": "PPA",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "202": {
+          "subject": "Eletiva",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "203": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "204": {
+          "subject": "Projeto de Vida",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "301": {
+          "subject": "PPA",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "302": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        }
+      },
+      "9": {
+        "101": {
+          "subject": "Eletiva",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "102": {
+          "subject": "Eletiva",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "103": {
+          "subject": "Eletiva",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "104": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "201": {
+          "subject": "PPA",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "202": {
+          "subject": "Eletiva",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "203": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "204": {
+          "subject": "Projeto de Vida",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "301": {
+          "subject": "PPA",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "302": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        }
+      }
+    },
+    "quarta": {
+      "1": {
+        "101": {
+          "subject": "Matemática",
+          "teacher": "LUCIDALVA",
+          "teacherIdx": 7
+        },
+        "102": {
+          "subject": "Filosofia",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "103": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "104": {
+          "subject": "Química",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "201": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "202": {
+          "subject": "Sociologia",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "203": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "204": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "301": {
+          "subject": "Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "302": {
+          "subject": "Arte",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        }
+      },
+      "2": {
+        "101": {
+          "subject": "Matemática",
+          "teacher": "LUCIDALVA",
+          "teacherIdx": 7
+        },
+        "102": {
+          "subject": "Filosofia",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "103": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "104": {
+          "subject": "Química",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "201": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "202": {
+          "subject": "Práticas Experimentais",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "203": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "204": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "301": {
+          "subject": "Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "302": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "ELIANA",
+          "teacherIdx": 6
+        }
+      },
+      "3": {
+        "101": {
+          "subject": "Arte",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "102": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "103": {
+          "subject": "Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "104": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "201": {
+          "subject": "Sociologia",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "202": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "203": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "204": {
+          "subject": "Química",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "301": {
+          "subject": "Química",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "302": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "ELIANA",
+          "teacherIdx": 6
+        }
+      },
+      "4": {
+        "101": {
+          "subject": "Arte",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "102": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "103": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "104": {
+          "subject": "Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "201": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "202": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "203": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "204": {
+          "subject": "Química",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "301": {
+          "subject": "Química",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "302": {
+          "subject": "Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        }
+      },
+      "5": {
+        "101": {
+          "subject": "Língua Inglesa",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "102": {
+          "subject": "Práticas Experimentais",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "103": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "104": {
+          "subject": "Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "201": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "202": {
+          "subject": "Arte",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "203": {
+          "subject": "Química",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "204": {
+          "subject": "Filosofia",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "301": {
+          "subject": "Educação Física",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "302": {
+          "subject": "Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        }
+      },
+      "6": {
+        "101": {
+          "subject": "Filosofia",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "102": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "LUCIDALVA",
+          "teacherIdx": 7
+        },
+        "103": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "104": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "201": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "202": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "203": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "204": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "301": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "ELIANA",
+          "teacherIdx": 6
+        },
+        "302": {
+          "subject": "Eletiva",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        }
+      },
+      "7": {
+        "101": {
+          "subject": "Filosofia",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "102": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "LUCIDALVA",
+          "teacherIdx": 7
+        },
+        "103": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "104": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "201": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "202": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "203": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "204": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "301": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "ELIANA",
+          "teacherIdx": 6
+        },
+        "302": {
+          "subject": "Eletiva",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        }
+      },
+      "8": {
+        "101": {
+          "subject": "Clube/Tutoria",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "102": {
+          "subject": "Clube/Tutoria",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "103": {
+          "subject": "Clube/Tutoria",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "104": {
+          "subject": "Clube/Tutoria",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "201": {
+          "subject": "Clube/Tutoria",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "202": {
+          "subject": "Clube/Tutoria",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "203": {
+          "subject": "Clube/Tutoria",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "204": {
+          "subject": "Clube/Tutoria",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "301": {
+          "subject": "Clube/Tutoria",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "302": {
+          "subject": "Clube/Tutoria",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        }
+      },
+      "9": {
+        "101": {
+          "subject": "Clube/Tutoria",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "102": {
+          "subject": "Clube/Tutoria",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "103": {
+          "subject": "Clube/Tutoria",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "104": {
+          "subject": "Clube/Tutoria",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "201": {
+          "subject": "Clube/Tutoria",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "202": {
+          "subject": "Clube/Tutoria",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "203": {
+          "subject": "Clube/Tutoria",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "204": {
+          "subject": "Clube/Tutoria",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "301": {
+          "subject": "Clube/Tutoria",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "302": {
+          "subject": "Clube/Tutoria",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        }
+      }
+    },
+    "quinta": {
+      "1": {
+        "101": {
+          "subject": "Matemática",
+          "teacher": "LUCIDALVA",
+          "teacherIdx": 7
+        },
+        "102": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "103": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "104": {
+          "subject": "Sociologia",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "201": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "202": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "203": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "204": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "301": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "302": {
+          "subject": "Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        }
+      },
+      "2": {
+        "101": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "LUCIDALVA",
+          "teacherIdx": 7
+        },
+        "102": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "103": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "104": {
+          "subject": "Sociologia",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "201": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "202": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "203": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "204": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "301": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "302": {
+          "subject": "Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        }
+      },
+      "3": {
+        "101": {
+          "subject": "Projeto de Vida",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "102": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "LUCIDALVA",
+          "teacherIdx": 7
+        },
+        "103": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "104": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "201": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "202": {
+          "subject": "Química",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "203": {
+          "subject": "Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "204": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "301": {
+          "subject": "Educação Ambiental",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "302": {
+          "subject": "Sociologia",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        }
+      },
+      "4": {
+        "101": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "102": {
+          "subject": "Sociologia",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "103": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "104": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "201": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "202": {
+          "subject": "Química",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "203": {
+          "subject": "Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "204": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "301": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "302": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        }
+      },
+      "5": {
+        "101": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "102": {
+          "subject": "Sociologia",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "103": {
+          "subject": "Arte",
+          "teacher": "KELSO",
+          "teacherIdx": 1
+        },
+        "104": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "201": {
+          "subject": "Projeto de Vida",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "202": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "203": {
+          "subject": "Química",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "204": {
+          "subject": "Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "301": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "302": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        }
+      },
+      "6": {
+        "101": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "102": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "103": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "104": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "201": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "202": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "203": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "204": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "LUIZ",
+          "teacherIdx": 8
+        },
+        "301": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "ELIANA",
+          "teacherIdx": 6
+        },
+        "302": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        }
+      },
+      "7": {
+        "101": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "102": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "103": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "104": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "201": {
+          "subject": "Educação Ambiental",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "202": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "203": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "204": {
+          "subject": "Projeto de Vida",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        },
+        "301": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "ELIANA",
+          "teacherIdx": 6
+        },
+        "302": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        }
+      },
+      "8": {
+        "101": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "LUCIDALVA",
+          "teacherIdx": 7
+        },
+        "102": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "103": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "104": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "201": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "202": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "203": {
+          "subject": "Eletiva",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "204": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "301": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "302": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        }
+      },
+      "9": {
+        "101": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "102": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "103": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "104": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "201": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "202": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "203": {
+          "subject": "Eletiva",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "204": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "301": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "EDMUNDO",
+          "teacherIdx": 11
+        },
+        "302": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "REGINA",
+          "teacherIdx": 4
+        }
+      }
+    },
+    "sexta": {
+      "1": {
+        "101": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "102": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "103": {
+          "subject": "Educação Física",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "104": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "201": {
+          "subject": "Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "202": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "203": {
+          "subject": "Práticas Experimentais",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "204": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "301": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "302": {
+          "subject": "Filosofia",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        }
+      },
+      "2": {
+        "101": {
+          "subject": "Aprofundamento de Linguagens",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "102": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "103": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "104": {
+          "subject": "Geografia",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "201": {
+          "subject": "Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "202": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "203": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "204": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "301": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "302": {
+          "subject": "Educação Física",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        }
+      },
+      "3": {
+        "101": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "102": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "103": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "104": {
+          "subject": "Educação Física",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "201": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "202": {
+          "subject": "Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "203": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "204": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "301": {
+          "subject": "Práticas Experimentais",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "302": {
+          "subject": "Educação Ambiental",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        }
+      },
+      "4": {
+        "101": {
+          "subject": "Educação Física",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "102": {
+          "subject": "Aprofundamento de Ciências Humanas",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "103": {
+          "subject": "Educação Ambiental",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "104": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "201": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "202": {
+          "subject": "Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "203": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "204": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "301": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "302": {
+          "subject": "Química",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        }
+      },
+      "5": {
+        "101": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "102": {
+          "subject": "Educação Ambiental",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "103": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "104": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "201": {
+          "subject": "Filosofia",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "202": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "203": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "204": {
+          "subject": "Sociologia",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "301": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "302": {
+          "subject": "Química",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        }
+      },
+      "6": {
+        "101": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "102": {
+          "subject": "PPA",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "103": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "104": {
+          "subject": "Educação Ambiental",
+          "teacher": "LUCÍLIO",
+          "teacherIdx": 15
+        },
+        "201": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "202": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "203": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "204": {
+          "subject": "Inglês 2",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "301": {
+          "subject": "Projeto de Vida",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "302": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        }
+      },
+      "7": {
+        "101": {
+          "subject": "Biologia",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "102": {
+          "subject": "PPA",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "103": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "ROGÉRIO",
+          "teacherIdx": 9
+        },
+        "104": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "201": {
+          "subject": "Estudo Orientado - Língua Portuguesa",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "202": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "203": {
+          "subject": "Aprofundamento de Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        },
+        "204": {
+          "subject": "Língua Inglesa",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "301": {
+          "subject": "Filosofia",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "302": {
+          "subject": "Física",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        }
+      },
+      "8": {
+        "101": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "102": {
+          "subject": "Projeto de Vida",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "103": {
+          "subject": "PPA",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "104": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "201": {
+          "subject": "Práticas Experimentais",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "202": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "203": {
+          "subject": "Sociologia",
+          "teacher": "CASSIANO",
+          "teacherIdx": 16
+        },
+        "204": {
+          "subject": "Língua Portuguesa e suas Literaturas",
+          "teacher": "EUNICE",
+          "teacherIdx": 5
+        },
+        "301": {
+          "subject": "Eletiva",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "302": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        }
+      },
+      "9": {
+        "101": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "FÍSICA",
+          "teacherIdx": 12
+        },
+        "102": {
+          "subject": "Língua Inglesa",
+          "teacher": "VANESSA",
+          "teacherIdx": 2
+        },
+        "103": {
+          "subject": "PPA",
+          "teacher": "PORTUGUÊS 1",
+          "teacherIdx": 3
+        },
+        "104": {
+          "subject": "Técnico",
+          "teacher": "MARÍLIA",
+          "teacherIdx": 18
+        },
+        "201": {
+          "subject": "Aprofundamento de Ciências da Natureza",
+          "teacher": "QUÍMICA 1",
+          "teacherIdx": 19
+        },
+        "202": {
+          "subject": "História",
+          "teacher": "ELENFLÁVIA",
+          "teacherIdx": 14
+        },
+        "203": {
+          "subject": "Filosofia",
+          "teacher": "ELINELSON",
+          "teacherIdx": 17
+        },
+        "204": {
+          "subject": "Educação Ambiental",
+          "teacher": "BIOLOGIA",
+          "teacherIdx": 13
+        },
+        "301": {
+          "subject": "Eletiva",
+          "teacher": "JHONATAN",
+          "teacherIdx": 0
+        },
+        "302": {
+          "subject": "Estudo Orientado - Matemática",
+          "teacher": "MILTON",
+          "teacherIdx": 10
+        }
+      }
+    }
+  },
+  "teachers": [
+    {
+      "name": "JHONATAN",
+      "subject": "Educação Física",
+      "classes": [
+        "101",
+        "102",
+        "103",
+        "104",
+        "301",
+        "302",
+        "201",
+        "202",
+        "203",
+        "204"
+      ],
+      "colorIdx": 0,
+      "classHours": {
+        "101": 1,
+        "102": 1,
+        "103": 1,
+        "104": 1,
+        "201": 2,
+        "202": 2,
+        "203": 2,
+        "204": 2,
+        "301": 1,
+        "302": 1
+      },
+      "hoursPerClass": 1
+    },
+    {
+      "name": "KELSO",
+      "subject": "Arte",
+      "classes": [
+        "201",
+        "202",
+        "203",
+        "204",
+        "301",
+        "302",
+        "101",
+        "102",
+        "103",
+        "104"
+      ],
+      "colorIdx": 1,
+      "classHours": {
+        "101": 2,
+        "102": 2,
+        "103": 2,
+        "104": 2,
+        "201": 1,
+        "202": 1,
+        "203": 1,
+        "204": 1,
+        "301": 1,
+        "302": 1
+      },
+      "hoursPerClass": 1
+    },
+    {
+      "name": "VANESSA",
+      "subject": "Língua Inglesa",
+      "classes": [
+        "101",
+        "102",
+        "103",
+        "104",
+        "201",
+        "202",
+        "203",
+        "204",
+        "301",
+        "302"
+      ],
+      "colorIdx": 2,
+      "classHours": {
+        "101": 1,
+        "102": 1,
+        "103": 1,
+        "104": 1,
+        "201": 1,
+        "202": 1,
+        "203": 1,
+        "204": 1,
+        "301": 2,
+        "302": 2
+      },
+      "hoursPerClass": 1
+    },
+    {
+      "name": "PORTUGUÊS 1",
+      "subject": "Língua Portuguesa e suas Literaturas",
+      "classes": [
+        "101",
+        "102",
+        "103"
+      ],
+      "colorIdx": 3,
+      "classHours": {
+        "101": 3,
+        "102": 3,
+        "103": 3
+      },
+      "hoursPerClass": 3
+    },
+    {
+      "name": "REGINA",
+      "subject": "Língua Portuguesa e suas Literaturas",
+      "classes": [
+        "104",
+        "203"
+      ],
+      "colorIdx": 4,
+      "classHours": {
+        "104": 3,
+        "203": 4
+      },
+      "hoursPerClass": 4
+    },
+    {
+      "name": "EUNICE",
+      "subject": "Língua Portuguesa e suas Literaturas",
+      "classes": [
+        "201",
+        "202",
+        "204"
+      ],
+      "colorIdx": 5,
+      "classHours": {
+        "201": 4,
+        "202": 4,
+        "204": 5
+      },
+      "hoursPerClass": 4
+    },
+    {
+      "name": "ELIANA",
+      "subject": "Língua Portuguesa e suas Literaturas",
+      "classes": [
+        "301",
+        "302"
+      ],
+      "colorIdx": 6,
+      "classHours": {
+        "301": 4,
+        "302": 4
+      },
+      "hoursPerClass": 4
+    },
+    {
+      "name": "LUCIDALVA",
+      "subject": "Matemática",
+      "classes": [
+        "101",
+        "102"
+      ],
+      "colorIdx": 7,
+      "classHours": {
+        "101": 3,
+        "102": 3
+      },
+      "hoursPerClass": 3
+    },
+    {
+      "name": "LUIZ",
+      "subject": "Matemática",
+      "classes": [
+        "104",
+        "301",
+        "204"
+      ],
+      "colorIdx": 8,
+      "classHours": {
+        "104": 3,
+        "204": 5,
+        "301": 4
+      },
+      "hoursPerClass": 4
+    },
+    {
+      "name": "ROGÉRIO",
+      "subject": "Matemática",
+      "classes": [
+        "201",
+        "202"
+      ],
+      "colorIdx": 9,
+      "classHours": {
+        "201": 4,
+        "202": 4
+      },
+      "hoursPerClass": 4
+    },
+    {
+      "name": "MILTON",
+      "subject": "Matemática",
+      "classes": [
+        "103",
+        "203",
+        "302"
+      ],
+      "colorIdx": 10,
+      "classHours": {
+        "103": 3,
+        "203": 4,
+        "302": 4
+      },
+      "hoursPerClass": 4
+    },
+    {
+      "name": "EDMUNDO",
+      "subject": "Química",
+      "classes": [
+        "101",
+        "102",
+        "103",
+        "104",
+        "301"
+      ],
+      "colorIdx": 11,
+      "hoursPerClass": 2,
+      "classHours": {
+        "101": 2,
+        "102": 2,
+        "103": 2,
+        "104": 2,
+        "301": 2
+      }
+    },
+    {
+      "name": "FÍSICA",
+      "subject": "Física",
+      "classes": [
+        "101",
+        "102",
+        "103",
+        "104",
+        "201",
+        "202",
+        "203",
+        "204",
+        "301",
+        "302"
+      ],
+      "colorIdx": 12,
+      "hoursPerClass": 2,
+      "classHours": {
+        "101": 2,
+        "102": 2,
+        "103": 2,
+        "104": 2,
+        "201": 2,
+        "202": 2,
+        "203": 2,
+        "204": 2,
+        "301": 2,
+        "302": 2
+      }
+    },
+    {
+      "name": "BIOLOGIA",
+      "subject": "Biologia",
+      "classes": [
+        "101",
+        "102",
+        "103",
+        "104",
+        "201",
+        "202",
+        "203",
+        "204",
+        "301",
+        "302"
+      ],
+      "colorIdx": 13,
+      "hoursPerClass": 2,
+      "classHours": {
+        "101": 2,
+        "102": 2,
+        "103": 2,
+        "104": 2,
+        "201": 2,
+        "202": 2,
+        "203": 2,
+        "204": 2,
+        "301": 2,
+        "302": 2
+      }
+    },
+    {
+      "name": "ELENFLÁVIA",
+      "subject": "História",
+      "classes": [
+        "101",
+        "102",
+        "103",
+        "104",
+        "201",
+        "202",
+        "203",
+        "204",
+        "301",
+        "302"
+      ],
+      "colorIdx": 14,
+      "hoursPerClass": 2,
+      "classHours": {
+        "101": 2,
+        "102": 2,
+        "103": 2,
+        "104": 2,
+        "201": 2,
+        "202": 2,
+        "203": 2,
+        "204": 2,
+        "301": 2,
+        "302": 2
+      }
+    },
+    {
+      "name": "LUCÍLIO",
+      "subject": "Geografia",
+      "classes": [
+        "101",
+        "102",
+        "103",
+        "104",
+        "201",
+        "202",
+        "203",
+        "204",
+        "301",
+        "302"
+      ],
+      "colorIdx": 15,
+      "hoursPerClass": 2,
+      "classHours": {
+        "101": 2,
+        "102": 2,
+        "103": 2,
+        "104": 2,
+        "201": 2,
+        "202": 2,
+        "203": 2,
+        "204": 2,
+        "301": 2,
+        "302": 2
+      }
+    },
+    {
+      "name": "CASSIANO",
+      "subject": "Sociologia",
+      "classes": [
+        "201",
+        "202",
+        "203",
+        "204",
+        "301",
+        "302",
+        "101",
+        "102",
+        "103",
+        "104"
+      ],
+      "colorIdx": 16,
+      "classHours": {
+        "101": 2,
+        "102": 2,
+        "103": 2,
+        "104": 2,
+        "201": 1,
+        "202": 1,
+        "203": 1,
+        "204": 1,
+        "301": 1,
+        "302": 1
+      },
+      "hoursPerClass": 1
+    },
+    {
+      "name": "ELINELSON",
+      "subject": "Filosofia",
+      "classes": [
+        "201",
+        "202",
+        "203",
+        "204",
+        "301",
+        "302",
+        "101",
+        "102",
+        "103",
+        "104"
+      ],
+      "colorIdx": 17,
+      "classHours": {
+        "101": 2,
+        "102": 2,
+        "103": 2,
+        "104": 2,
+        "201": 1,
+        "202": 1,
+        "203": 1,
+        "204": 1,
+        "301": 1,
+        "302": 1
+      },
+      "hoursPerClass": 1
+    },
+    {
+      "name": "MARÍLIA",
+      "subject": "Técnico",
+      "classes": [
+        "204",
+        "104"
+      ],
+      "colorIdx": 18,
+      "classHours": {
+        "104": 12,
+        "204": 8
+      },
+      "hoursPerClass": 10
+    },
+    {
+      "name": "QUÍMICA 1",
+      "subject": "Química",
+      "colorIdx": 19,
+      "hoursPerClass": 2,
+      "classes": [
+        "201",
+        "202",
+        "203",
+        "204",
+        "302"
+      ],
+      "classHours": {
+        "201": 2,
+        "202": 2,
+        "203": 2,
+        "204": 2,
+        "302": 2
+      }
+    }
+  ],
+  "teacherSpecificSubjects": {
+    "0": [
+      {
+        "subject": "Eletiva",
+        "class": "301",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Eletiva",
+        "class": "302",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Eletiva",
+        "class": "103",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "PPA",
+        "class": "102",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "PPA",
+        "class": "203",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Clube/Tutoria",
+        "class": "101",
+        "hoursPerWeek": 2
+      }
+    ],
+    "1": [
+      {
+        "subject": "Eletiva",
+        "class": "101",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Clube/Tutoria",
+        "class": "102",
+        "hoursPerWeek": 2
+      }
+    ],
+    "2": [
+      {
+        "subject": "Aprofundamento de Linguagens",
+        "class": "101",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Linguagens",
+        "class": "102",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Linguagens",
+        "class": "103",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Eletiva",
+        "class": "102",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Projeto de Vida",
+        "class": "102",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Inglês 2",
+        "class": "204",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "PPA",
+        "class": "202",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "PPA",
+        "class": "302",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Clube/Tutoria",
+        "class": "103",
+        "hoursPerWeek": 2
+      }
+    ],
+    "3": [
+      {
+        "subject": "Aprofundamento de Linguagens",
+        "class": "201",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Projeto de Vida",
+        "class": "103",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "PPA",
+        "class": "103",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Eletiva",
+        "class": "202",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Língua Portuguesa",
+        "class": "101",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Língua Portuguesa",
+        "class": "102",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Língua Portuguesa",
+        "class": "103",
+        "hoursPerWeek": 2
+      }
+    ],
+    "4": [
+      {
+        "subject": "Aprofundamento de Linguagens",
+        "class": "104",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Linguagens",
+        "class": "202",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Linguagens",
+        "class": "203",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Linguagens",
+        "class": "302",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Projeto de Vida",
+        "class": "101",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Projeto de Vida",
+        "class": "201",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Projeto de Vida",
+        "class": "202",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Projeto de Vida",
+        "class": "203",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Projeto de Vida",
+        "class": "204",
+        "hoursPerWeek": 3
+      },
+      {
+        "subject": "Clube/Tutoria",
+        "class": "104",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Língua Portuguesa",
+        "class": "203",
+        "hoursPerWeek": 2
+      }
+    ],
+    "5": [
+      {
+        "subject": "PPA",
+        "class": "301",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Clube/Tutoria",
+        "class": "201",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Língua Portuguesa",
+        "class": "201",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Língua Portuguesa",
+        "class": "202",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Língua Portuguesa",
+        "class": "204",
+        "hoursPerWeek": 2
+      }
+    ],
+    "6": [
+      {
+        "subject": "Aprofundamento de Linguagens",
+        "class": "301",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Língua Portuguesa",
+        "class": "301",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Língua Portuguesa",
+        "class": "302",
+        "hoursPerWeek": 2
+      }
+    ],
+    "7": [
+      {
+        "subject": "Aprofundamento de Matemática",
+        "class": "101",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Matemática",
+        "class": "102",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Clube/Tutoria",
+        "class": "201",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Matemática",
+        "class": "101",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Matemática",
+        "class": "102",
+        "hoursPerWeek": 2
+      }
+    ],
+    "8": [
+      {
+        "subject": "Aprofundamento de Matemática",
+        "class": "104",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "PPA",
+        "class": "101",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Clube/Tutoria",
+        "class": "202",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Matemática",
+        "class": "204",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Matemática",
+        "class": "301",
+        "hoursPerWeek": 2
+      }
+    ],
+    "9": [
+      {
+        "subject": "Aprofundamento de Matemática",
+        "class": "103",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Matemática",
+        "class": "201",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Matemática",
+        "class": "202",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Matemática",
+        "class": "301",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Eletiva",
+        "class": "203",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Clube/Tutoria",
+        "class": "203",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Matemática",
+        "class": "201",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Matemática",
+        "class": "202",
+        "hoursPerWeek": 2
+      }
+    ],
+    "10": [
+      {
+        "subject": "Aprofundamento de Matemática",
+        "class": "203",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Matemática",
+        "class": "302",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Clube/Tutoria",
+        "class": "204",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Matemática",
+        "class": "103",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Matemática",
+        "class": "203",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Estudo Orientado - Matemática",
+        "class": "302",
+        "hoursPerWeek": 2
+      }
+    ],
+    "11": [
+      {
+        "subject": "Práticas Experimentais",
+        "class": "101",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Práticas Experimentais",
+        "class": "102",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Aprofundamento de Ciências da Natureza",
+        "class": "301",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Ciências da Natureza",
+        "class": "302",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Clube/Tutoria",
+        "class": "301",
+        "hoursPerWeek": 2
+      }
+    ],
+    "12": [
+      {
+        "subject": "Aprofundamento de Ciências da Natureza",
+        "class": "102",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Ciências da Natureza",
+        "class": "101",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Práticas Experimentais",
+        "class": "103",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Clube/Tutoria",
+        "class": "302",
+        "hoursPerWeek": 2
+      }
+    ],
+    "13": [
+      {
+        "subject": "Educação Ambiental",
+        "class": "201",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Educação Ambiental",
+        "class": "202",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Educação Ambiental",
+        "class": "203",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Educação Ambiental",
+        "class": "204",
+        "hoursPerWeek": 1
+      }
+    ],
+    "14": [
+      {
+        "subject": "Projeto de Vida",
+        "class": "301",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Eletiva",
+        "class": "201",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Projeto de Vida",
+        "class": "302",
+        "hoursPerWeek": 1
+      }
+    ],
+    "15": [
+      {
+        "subject": "Educação Ambiental",
+        "class": "101",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Educação Ambiental",
+        "class": "102",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Educação Ambiental",
+        "class": "103",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Educação Ambiental",
+        "class": "104",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Educação Ambiental",
+        "class": "301",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Educação Ambiental",
+        "class": "302",
+        "hoursPerWeek": 1
+      }
+    ],
+    "16": [
+      {
+        "subject": "Aprofundamento de Ciências Humanas",
+        "class": "102",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Ciências Humanas",
+        "class": "104",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Ciências Humanas",
+        "class": "201",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Ciências Humanas",
+        "class": "202",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Ciências Humanas",
+        "class": "203",
+        "hoursPerWeek": 2
+      }
+    ],
+    "17": [
+      {
+        "subject": "Aprofundamento de Ciências Humanas",
+        "class": "101",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Ciências Humanas",
+        "class": "103",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Ciências Humanas",
+        "class": "301",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Ciências Humanas",
+        "class": "302",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "PPA",
+        "class": "201",
+        "hoursPerWeek": 2
+      }
+    ],
+    "19": [
+      {
+        "subject": "Aprofundamento de Ciências da Natureza",
+        "class": "103",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Ciências da Natureza",
+        "class": "104",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Ciências da Natureza",
+        "class": "201",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Ciências da Natureza",
+        "class": "202",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Aprofundamento de Ciências da Natureza",
+        "class": "203",
+        "hoursPerWeek": 2
+      },
+      {
+        "subject": "Práticas Experimentais",
+        "class": "201",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Práticas Experimentais",
+        "class": "202",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Práticas Experimentais",
+        "class": "203",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Práticas Experimentais",
+        "class": "301",
+        "hoursPerWeek": 1
+      },
+      {
+        "subject": "Práticas Experimentais",
+        "class": "302",
+        "hoursPerWeek": 1
+      }
+    ]
+  },
+  "lockedCells": {
+    "quinta-1-204": true,
+    "quinta-2-204": true,
+    "quinta-3-204": true,
+    "quinta-4-104": true,
+    "quinta-5-104": true,
+    "quinta-7-104": true,
+    "quinta-8-104": true,
+    "quinta-9-104": true,
+    "sexta-1-204": true,
+    "sexta-2-204": true,
+    "sexta-4-104": true,
+    "sexta-5-104": true,
+    "sexta-3-204": true,
+    "sexta-7-104": true,
+    "sexta-8-104": true,
+    "sexta-9-104": true,
+    "quarta-6-104": true,
+    "quarta-7-104": true,
+    "quarta-8-204": true,
+    "quarta-9-204": true,
+    "segunda-6-204": true,
+    "segunda-7-204": true,
+    "segunda-2-204": true,
+    "segunda-1-204": true,
+    "segunda-1-101": true,
+    "segunda-2-101": true,
+    "segunda-3-101": true,
+    "segunda-4-101": true,
+    "segunda-5-101": true,
+    "segunda-6-101": true,
+    "segunda-7-101": true,
+    "segunda-8-101": true,
+    "segunda-9-101": true,
+    "quarta|6|104": true,
+    "quarta|7|104": true,
+    "quarta|8|204": true,
+    "quarta|9|204": true,
+    "quinta|1|204": true,
+    "quinta|2|204": true,
+    "quinta|3|204": true,
+    "quinta|4|104": true,
+    "quinta|5|104": true,
+    "quinta|7|104": true,
+    "quinta|8|104": true,
+    "quinta|9|104": true,
+    "sexta|4|104": true,
+    "sexta|5|104": true,
+    "sexta|7|104": true,
+    "sexta|8|104": true,
+    "sexta|9|104": true,
+    "sexta|3|204": true,
+    "sexta|2|204": true,
+    "sexta|1|204": true,
+    "quarta|9|302": true,
+    "quarta|9|301": true,
+    "quarta|8|301": true,
+    "quarta|8|302": true,
+    "quarta|8|203": true,
+    "quarta|9|203": true,
+    "quarta|9|202": true,
+    "quarta|8|202": true,
+    "quarta|8|201": true,
+    "quarta|9|201": true,
+    "quarta|9|104": true,
+    "quarta|8|104": true,
+    "quarta|8|103": true,
+    "quarta|9|103": true,
+    "quarta|9|102": true,
+    "quarta|9|101": true,
+    "quarta|8|101": true,
+    "quarta|8|102": true,
+    "quarta|6|204": true,
+    "quarta|7|204": true,
+    "segunda|4|101": true,
+    "segunda|5|101": true
+  },
+  "timeSlots": [
+    {
+      "id": "1",
+      "label": "AULA 1",
+      "time": "7:20 - 8:10",
+      "isInterval": false
+    },
+    {
+      "id": "2",
+      "label": "AULA 2",
+      "time": "8:10 - 9:00",
+      "isInterval": false
+    },
+    {
+      "id": "intervalo1",
+      "label": "INTERVALO",
+      "time": "9:00 - 9:15",
+      "isInterval": true
+    },
+    {
+      "id": "3",
+      "label": "AULA 3",
+      "time": "9:15 - 10:05",
+      "isInterval": false
+    },
+    {
+      "id": "4",
+      "label": "AULA 4",
+      "time": "10:05 - 10:55",
+      "isInterval": false
+    },
+    {
+      "id": "5",
+      "label": "AULA 5",
+      "time": "10:55 - 11:45",
+      "isInterval": false
+    },
+    {
+      "id": "almoco",
+      "label": "ALMOÇO",
+      "time": "11:45 - 13:00",
+      "isInterval": true
+    },
+    {
+      "id": "6",
+      "label": "AULA 6",
+      "time": "13:00 - 13:50",
+      "isInterval": false
+    },
+    {
+      "id": "7",
+      "label": "AULA 7",
+      "time": "13:50 - 14:40",
+      "isInterval": false
+    },
+    {
+      "id": "intervalo2",
+      "label": "INTERVALO",
+      "time": "14:40 - 14:55",
+      "isInterval": true
+    },
+    {
+      "id": "8",
+      "label": "AULA 8",
+      "time": "14:55 - 15:45",
+      "isInterval": false
+    },
+    {
+      "id": "9",
+      "label": "AULA 9",
+      "time": "15:45 - 16:35",
+      "isInterval": false
+    }
+  ],
+  "currentDay": "segunda"
+}

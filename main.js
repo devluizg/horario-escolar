@@ -338,6 +338,83 @@ function renderSchedule() {
     }
 }
 
+function generateClassScheduleTableHTML(cls) {
+    let html = '<table class="schedule-table"><thead><tr>';
+    html += '<th style="min-width: 100px;">HORÁRIO</th>';
+
+    // Headers are Days
+    if (!dayNames) {
+        throw new Error('dayNames is undefined');
+    }
+
+    days.forEach(day => {
+        html += `<th>${dayNames[day]}</th>`;
+    });
+    html += '</tr></thead><tbody>';
+
+    const teacherLessonsCount = {};
+
+    timeSlots.forEach(slot => {
+        html += `<tr class="${slot.isInterval ? 'interval-row' : ''}">`;
+        html += `<td class="time-cell ${slot.isInterval ? 'interval-cell' : ''}">
+                <strong>${slot.label}</strong><br>
+                <small>${slot.time}</small>
+            </td>`;
+
+        if (slot.isInterval) {
+            html += `<td colspan="${days.length}" class="interval-cell">
+                    ${slot.label === 'ALMOÇO' ? '🍽️' : '☕'} ${slot.label}
+                </td>`;
+        } else {
+            days.forEach(day => {
+                const lesson = schedule[day]?.[slot.id]?.[cls];
+                const cellId = `cell-${day}-${slot.id}-${cls}`;
+
+                html += `<td class="class-cell" 
+                                 id="${cellId}"
+                                 data-day="${day}" 
+                                 data-time="${slot.id}" 
+                                 data-class="${cls}">`;
+
+                if (lesson) {
+                    const teacherName = lesson.teacher;
+                    if (!teacherLessonsCount[teacherName]) {
+                        teacherLessonsCount[teacherName] = 0;
+                    }
+                    teacherLessonsCount[teacherName]++;
+
+                    const conflict = checkConflict(day, slot.id, lesson.teacherIdx, cls);
+                    const teacher = teachers[lesson.teacherIdx];
+                    const colors = teacher ? getTeacherColor(teacher) : ['#667eea', '#764ba2'];
+
+                    const isClubeTutoria = lesson.subject === 'Clube/Tutoria';
+                    const cardStyle = isClubeTutoria
+                        ? 'background: #f8f9fa; border: 2px dashed #cbd5e1;'
+                        : `background: linear-gradient(135deg, ${colors[0]} 0%, ${colors[1]} 100%);`;
+                    const textClass = isClubeTutoria ? 'clube-tutoria' : '';
+
+                    html += `
+                            <div class="lesson-card ${conflict ? 'conflict' : ''} ${textClass}" 
+                                 style="${cardStyle}"
+                                 draggable="true"
+                                 data-day="${day}"
+                                 data-time="${slot.id}"
+                                 data-class="${cls}">
+                                <div class="teacher-name-main">${isClubeTutoria ? 'Clubes' : lesson.teacher}</div>
+                                <div class="subject-name-sub">${abbreviateSubject(lesson.subject)}</div>
+                                <button class="remove-btn" data-remove-lesson="${day}-${slot.id}-${cls}">×</button>
+                            </div>`;
+                }
+                html += '</td>';
+            });
+        }
+        html += '</tr>';
+    });
+
+    html += '</tbody></table>';
+    return html;
+}
+
 function renderClassSchedule() {
     try {
         const container = document.getElementById('schedule-content');
@@ -345,81 +422,7 @@ function renderClassSchedule() {
             return;
         }
 
-        let html = '<table class="schedule-table"><thead><tr>';
-        html += '<th style="min-width: 100px;">HORÁRIO</th>';
-
-        // Headers are Days
-        if (!dayNames) {
-            throw new Error('dayNames is undefined');
-        }
-
-        days.forEach(day => {
-            html += `<th>${dayNames[day]}</th>`;
-        });
-        html += '</tr></thead><tbody>';
-
-        // Count lessons for the weekly summary of this class
-        const teacherLessonsCount = {};
-
-        timeSlots.forEach(slot => {
-            html += `<tr class="${slot.isInterval ? 'interval-row' : ''}">`;
-            html += `<td class="time-cell ${slot.isInterval ? 'interval-cell' : ''}">
-                <strong>${slot.label}</strong><br>
-                <small>${slot.time}</small>
-            </td>`;
-
-            if (slot.isInterval) {
-                html += `<td colspan="${days.length}" class="interval-cell">
-                    ${slot.label === 'ALMOÇO' ? '🍽️' : '☕'} ${slot.label}
-                </td>`;
-            } else {
-                days.forEach(day => {
-                    const cls = currentSelectedClass;
-                    const lesson = schedule[day]?.[slot.id]?.[cls];
-                    const cellId = `cell-${day}-${slot.id}-${cls}`;
-
-                    html += `<td class="class-cell" 
-                                 id="${cellId}"
-                                 data-day="${day}" 
-                                 data-time="${slot.id}" 
-                                 data-class="${cls}">`;
-
-                    if (lesson) {
-                        const teacherName = lesson.teacher;
-                        if (!teacherLessonsCount[teacherName]) {
-                            teacherLessonsCount[teacherName] = 0;
-                        }
-                        teacherLessonsCount[teacherName]++;
-
-                        const conflict = checkConflict(day, slot.id, lesson.teacherIdx, cls);
-                        const teacher = teachers[lesson.teacherIdx];
-                        const colors = teacher ? getTeacherColor(teacher) : ['#667eea', '#764ba2'];
-
-                        const isClubeTutoria = lesson.subject === 'Clube/Tutoria';
-                        const cardStyle = isClubeTutoria
-                            ? 'background: #f8f9fa; border: 2px dashed #cbd5e1;'
-                            : `background: linear-gradient(135deg, ${colors[0]} 0%, ${colors[1]} 100%);`;
-                        const textClass = isClubeTutoria ? 'clube-tutoria' : '';
-
-                        html += `
-                            <div class="lesson-card ${conflict ? 'conflict' : ''} ${textClass}" 
-                                 style="${cardStyle}"
-                                 draggable="true"
-                                 data-day="${day}"
-                                 data-time="${slot.id}"
-                                 data-class="${cls}">
-                                <div class="teacher-name-main">${isClubeTutoria ? '📖 Livre' : lesson.teacher}</div>
-                                <div class="subject-name-sub">${abbreviateSubject(lesson.subject)}</div>
-                                <button class="remove-btn" data-remove-lesson="${day}-${slot.id}-${cls}">×</button>
-                            </div>`;
-                    }
-                    html += '</td>';
-                });
-            }
-            html += '</tr>';
-        });
-
-        html += '</tbody></table>';
+        let html = generateClassScheduleTableHTML(currentSelectedClass);
 
         html += renderClassWorkloadReport(currentSelectedClass);
 
@@ -518,7 +521,7 @@ function renderClassWorkloadReport(cls) {
         { subject: 'Filosofia', hours: { 1: 2, 2: 1, 3: 1 } }
     ];
 
-        const itineraryMatrix = [
+    const itineraryMatrix = [
         { subject: 'Projeto de Vida', hours: 1 },
         { subject: 'Aprofundamento de Linguagens', hours: 2 },
         { subject: 'Aprofundamento de Matemática', hours: 2 },
@@ -864,9 +867,9 @@ function renderClassWorkloadReport(cls) {
                         </td>
                         <td style="padding: 12px 15px; text-align: center;">
                             ${fgbMissingCount === 0 ?
-                                '<span style="color: #22c55e; font-weight: 700; font-size: 12px;">✅ Completo</span>' :
-                                `<span style="color: #ef4444; font-weight: 700; font-size: 12px;">❌ ${fgbMissingCount} faltando</span>`
-                            }
+            '<span style="color: #22c55e; font-weight: 700; font-size: 12px;">✅ Completo</span>' :
+            `<span style="color: #ef4444; font-weight: 700; font-size: 12px;">❌ ${fgbMissingCount} faltando</span>`
+        }
                         </td>
                     </tr>
                 </tbody>
@@ -977,9 +980,9 @@ function renderClassWorkloadReport(cls) {
                         </td>
                         <td style="padding: 12px 15px; text-align: center;">
                             ${itMissingCount === 0 ?
-                                '<span style="color: #22c55e; font-weight: 700; font-size: 12px;">✅ Completo</span>' :
-                                `<span style="color: #ef4444; font-weight: 700; font-size: 12px;">❌ ${itMissingCount} faltando</span>`
-                            }
+            '<span style="color: #22c55e; font-weight: 700; font-size: 12px;">✅ Completo</span>' :
+            `<span style="color: #ef4444; font-weight: 700; font-size: 12px;">❌ ${itMissingCount} faltando</span>`
+        }
                         </td>
                     </tr>
                 </tbody>
@@ -1080,7 +1083,7 @@ function getGeneralScheduleHTML(targetDay) {
                              data-day="${targetDay}"
                              data-time="${slot.id}"
                              data-class="${cls}">
-                            <div class="teacher-name-main">${isClubeTutoria ? '📖 Livre' : lesson.teacher}</div>
+                            <div class="teacher-name-main">${isClubeTutoria ? 'Clubes' : lesson.teacher}</div>
                             <div class="subject-name-sub">${abbreviateSubject(lesson.subject)}</div>
                             <button class="remove-btn" data-remove-lesson="${targetDay}-${slot.id}-${cls}">×</button>
                         </div>`;
@@ -1743,7 +1746,7 @@ function displayClassScheduleInModal(selectedClass) {
                                 <div class="lesson-card-readonly"
                                      style="background: #f8f9fa; border: 2px dashed #cbd5e1;
                                             color: #64748b; padding: 10px; border-radius: 8px; text-align: center;">
-                                    <div style="font-weight: 800; font-size: 14px; margin-bottom: 4px;">📖 Livre</div>
+                                    <div style="font-weight: 800; font-size: 14px; margin-bottom: 4px;">Clubes</div>
                                     <div style="font-size: 10px; opacity: 0.7;">Clube/Tutoria</div>
                                 </div>`;
                         } else {
@@ -2267,28 +2270,53 @@ function printSchedule() {
     // 2. Limpar conteúdo anterior
     printContainer.innerHTML = '';
 
-    // 3. Gerar HTML para TODOS os dias
-    days.forEach(day => {
-        const dayHTML = getGeneralScheduleHTML(day);
+    // 3. Map de nomes de dias
+    const dayNamesPrint = {
+        'segunda': 'Segunda-feira',
+        'terca': 'Terça-feira',
+        'quarta': 'Quarta-feira',
+        'quinta': 'Quinta-feira',
+        'sexta': 'Sexta-feira'
+    };
 
-        const dayWrapper = document.createElement('div');
-        dayWrapper.className = 'print-day-page page-break';
-        dayWrapper.innerHTML = `
-            <div class="print-header" style="text-align: center; margin-bottom: 20px;">
-                <h1>Escola de Ensino Médio - Turno Integral</h1>
-                <h2>Grade Horária - ${day.charAt(0).toUpperCase() + day.slice(1)}</h2>
-            </div>
-            ${dayHTML}
-        `;
+    if (viewMode === 'class') {
+        // MODO POR TURMA: Imprimir todas as turmas
+        classes.forEach(cls => {
+            const classHTML = generateClassScheduleTableHTML(cls);
 
-        printContainer.appendChild(dayWrapper);
-    });
+            const pageWrapper = document.createElement('div');
+            pageWrapper.className = 'print-day-page page-break';
+            pageWrapper.innerHTML = `
+                <div class="print-header" style="text-align: center; margin-bottom: 20px;">
+                    <h1>Escola de Ensino Médio - Turno Integral</h1>
+                    <h2>Grade Horária - Turma ${cls}</h2>
+                </div>
+                ${classHTML}
+            `;
+            printContainer.appendChild(pageWrapper);
+        });
+
+    } else {
+        // MODO GERAL: Imprimir por dias
+        days.forEach(day => {
+            const dayHTML = getGeneralScheduleHTML(day);
+
+            const dayWrapper = document.createElement('div');
+            dayWrapper.className = 'print-day-page page-break';
+            dayWrapper.innerHTML = `
+                <div class="print-header" style="text-align: center; margin-bottom: 20px;">
+                    <h1>Escola de Ensino Médio - Turno Integral</h1>
+                    <h2>Grade Horária - ${dayNamesPrint[day] || day}</h2>
+                </div>
+                ${dayHTML}
+            `;
+
+            printContainer.appendChild(dayWrapper);
+        });
+    }
 
     // 4. Imprimir
     window.print();
-
-    // 5. Limpar (opcional, mas bom para memória)
-    // setTimeout(() => { printContainer.innerHTML = ''; }, 1000);
 }
 
 // ==================== PERSISTÊNCIA ====================
@@ -2627,19 +2655,35 @@ function openTimeSlotsModal() {
 }
 
 function renderTimeSlotsConfig() {
-    const container = document.getElementById('timeSlotsConfigContainer');
+    const container = document.getElementById('timeSlotsConfigList');
+
+    // Verificação de segurança
+    if (!container) {
+        console.error('Elemento timeSlotsConfigList não encontrado no DOM');
+        showAlert('Erro ao abrir configuração de horários', 'error');
+        return;
+    }
+
     let html = '';
 
     timeSlots.forEach((slot, index) => {
+        const [start, end] = slot.time.split(' - ');
+
         if (slot.isInterval) {
             html += `
-                <div class="time-slot-config interval">
-                    <strong>${slot.label}</strong>
-                    <span class="badge">Intervalo</span>
+                <div class="time-slot-config interval" style="background: #e0e7ff; border-left: 4px solid #4338ca;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                        <strong>${slot.label}</strong>
+                        <span class="badge" style="background: #4338ca;">Intervalo</span>
+                    </div>
+                    <div class="time-inputs">
+                        <input type="time" id="time-start-${index}" value="${convertToTimeInput(start)}">
+                        <span>até</span>
+                        <input type="time" id="time-end-${index}" value="${convertToTimeInput(end)}">
+                    </div>
                 </div>
             `;
         } else {
-            const [start, end] = slot.time.split(' - ');
             html += `
                 <div class="time-slot-config">
                     <div class="slot-label">${slot.label}</div>
@@ -2696,13 +2740,19 @@ function saveTimeSlotsConfig() {
 }
 
 function resetTimeSlotsConfig() {
-    if (confirm('⚠️ Tem certeza que deseja restaurar os horários padrão?\n\nTodas as suas configurações personalizadas serão perdidas.')) {
-        // Recarregar página para restaurar do config.js (hard refresh)
-        // Ou redefinir manualmente se tivermos os padrões salvos
-        // Por simplificação:
-        localStorage.removeItem('schoolScheduleData'); // PERIGOSO - APAGA TUDO
-        alert('Os dados foram resetados. A página será recarregada.');
-        window.location.reload();
+    if (confirm('⚠️ Tem certeza que deseja restaurar os horários padrão?\n\nTodas as suas configurações personalizadas de horários serão perdidas.')) {
+        // Resetar apenas os timeSlots para os valores padrão
+        timeSlots.length = 0;
+        timeSlots.push(...defaultTimeSlots);
+
+        // Salvar no localStorage
+        localStorage.setItem('customTimeSlots', JSON.stringify(timeSlots));
+
+        // Re-renderizar a configuração e a grade
+        renderTimeSlotsConfig();
+        renderSchedule();
+
+        showAlert('✅ Horários restaurados para o padrão!', 'success');
     }
 }
 

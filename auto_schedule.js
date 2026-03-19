@@ -176,8 +176,8 @@ function collectAllTasks() {
             // Clube/Tutoria: 1 aula por semana (ajuste conforme necessário)
             tasks.push({
                 teacherIdx: -1, // Professor virtual
-                teacherName: 'Livre',
-                subject: 'Clube/Tutoria',
+                teacherName: 'Clube',
+                subject: 'Tutoria',
                 cls: cls,
                 totalHours: 1, // Ajuste a quantidade de aulas aqui
                 isPrincipal: false,

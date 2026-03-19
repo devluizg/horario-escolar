@@ -88,16 +88,16 @@ const classes = [
 const defaultTimeSlots = [
     { id: '1', label: 'AULA 1', time: '7:20 - 8:10', isInterval: false },
     { id: '2', label: 'AULA 2', time: '8:10 - 9:00', isInterval: false },
-    { id: 'intervalo1', label: 'INTERVALO', time: '9:00 - 9:25', isInterval: true },
-    { id: '3', label: 'AULA 3', time: '9:25 - 10:15', isInterval: false },
-    { id: '4', label: 'AULA 4', time: '10:15 - 11:05', isInterval: false },
-    { id: '5', label: 'AULA 5', time: '11:05 - 11:45', isInterval: false },
-    { id: 'almoco', label: 'ALMOÇO', time: '11:45 - 13:00', isInterval: true },
-    { id: '6', label: 'AULA 6', time: '13:00 - 13:50', isInterval: false },
-    { id: '7', label: 'AULA 7', time: '13:50 - 14:40', isInterval: false },
-    { id: 'intervalo2', label: 'INTERVALO', time: '14:40 - 14:55', isInterval: true },
-    { id: '8', label: 'AULA 8', time: '14:55 - 15:45', isInterval: false },
-    { id: '9', label: 'AULA 9', time: '15:45 - 16:35', isInterval: false }
+    { id: 'intervalo1', label: 'INTERVALO', time: '9:00 - 9:20', isInterval: true },
+    { id: '3', label: 'AULA 3', time: '9:20 - 10:11', isInterval: false },
+    { id: '4', label: 'AULA 4', time: '10:10 - 11:00', isInterval: false },
+    { id: '5', label: 'AULA 5', time: '11:00 - 11:45', isInterval: false },
+    { id: 'almoco', label: 'ALMOÇO', time: '11:45 - 13:15', isInterval: true },
+    { id: '6', label: 'AULA 6', time: '13:15 - 14:00', isInterval: false },
+    { id: '7', label: 'AULA 7', time: '14:00 - 14:45', isInterval: false },
+    { id: 'intervalo2', label: 'INTERVALO', time: '14:45 - 15:00', isInterval: true },
+    { id: '8', label: 'AULA 8', time: '15:00 - 15:45', isInterval: false },
+    { id: '9', label: 'AULA 9', time: '15:45 - 16:30', isInterval: false }
 ];
 
 // Carregar timeSlots do localStorage ou usar padrão
