@@ -103,6 +103,9 @@ const defaultTimeSlots = [
 // Carregar timeSlots do localStorage ou usar padrão
 let timeSlots = JSON.parse(localStorage.getItem('customTimeSlots')) || [...defaultTimeSlots];
 
+// Duração padrão das aulas em minutos (salvo junto com os dados da grade)
+let slotDuration = 50;
+
 // Função para salvar os horários personalizados
 function saveCustomTimeSlots() {
     localStorage.setItem('customTimeSlots', JSON.stringify(timeSlots));

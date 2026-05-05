@@ -2354,6 +2354,7 @@ function buildPersistedData() {
         teacherRestrictions: teacherRestrictions || {},
         lockedCells: lockedCells || {},
         timeSlots: timeSlots,
+        slotDuration: slotDuration,
         viewMode: viewMode,
         currentSelectedClass: currentSelectedClass,
         lastUpdatedAt: new Date().toISOString()
@@ -2395,6 +2396,10 @@ function applyPersistedData(data) {
     if (Array.isArray(data.timeSlots)) {
         timeSlots.length = 0;
         timeSlots.push(...data.timeSlots);
+    }
+
+    if (typeof data.slotDuration === 'number' && data.slotDuration > 0) {
+        slotDuration = data.slotDuration;
     }
 
     if (data.viewMode === 'general' || data.viewMode === 'class') {
@@ -2650,6 +2655,27 @@ function generatePDFReport() {
 
 // ==================== CONFIGURAÇÃO DE HORÁRIOS ====================
 
+// ==================== HELPERS DE TEMPO ====================
+
+function timeStringToMinutes(timeStr) {
+    const [h, m] = timeStr.trim().split(':').map(Number);
+    return h * 60 + m;
+}
+
+function minutesToTimeString(mins) {
+    const h = Math.floor(mins / 60);
+    const m = mins % 60;
+    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+}
+
+function getCurrentSlotDuration() {
+    const input = document.getElementById('slotDurationInput');
+    const val = input ? parseInt(input.value) : NaN;
+    return (isNaN(val) || val <= 0) ? slotDuration : val;
+}
+
+// ==================== CONFIGURAÇÃO DE HORÁRIOS ====================
+
 function openTimeSlotsModal() {
     pendingTimeSlots = JSON.parse(JSON.stringify(timeSlots));
     renderTimeSlotsConfig();
@@ -2664,6 +2690,8 @@ function renderTimeSlotsConfig() {
         return;
     }
 
+    const dur = getCurrentSlotDuration();
+
     const insertBtn = (pos) => `
         <div style="text-align:center; margin:4px 0;">
             <button onclick="addSlotAt(${pos})"
@@ -2672,7 +2700,19 @@ function renderTimeSlotsConfig() {
             </button>
         </div>`;
 
-    let html = insertBtn(0);
+    let html = `
+        <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:12px 16px;margin-bottom:12px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <label style="font-weight:600;color:#166534;white-space:nowrap;">⏱️ Duração padrão das aulas:</label>
+            <div style="display:flex;align-items:center;gap:6px;">
+                <input type="number" id="slotDurationInput" value="${dur}" min="10" max="120" step="5"
+                    onchange="onDurationChange()"
+                    style="width:70px;padding:5px 8px;border:1px solid #86efac;border-radius:6px;font-size:15px;font-weight:600;color:#166534;text-align:center;">
+                <span style="color:#166534;font-weight:500;">minutos</span>
+            </div>
+            <span style="color:#15803d;font-size:12px;">Ao digitar o início de uma aula, o fim é preenchido automaticamente. Ao inserir uma aula, os horários seguintes são recalculados.</span>
+        </div>`;
+
+    html += insertBtn(0);
 
     pendingTimeSlots.forEach((slot, index) => {
         const [start, end] = slot.time.split(' - ');
@@ -2685,9 +2725,13 @@ function renderTimeSlotsConfig() {
                         <span style="background:#4338ca;color:#fff;padding:2px 10px;border-radius:10px;font-size:12px;">Intervalo</span>
                     </div>
                     <div style="display:flex;align-items:center;gap:8px;">
-                        <input type="time" id="time-start-${index}" value="${convertToTimeInput(start)}" style="padding:4px;border:1px solid #ccc;border-radius:4px;">
+                        <input type="time" id="time-start-${index}" value="${convertToTimeInput(start)}"
+                            onchange="onEndTimeChange(${index})"
+                            style="padding:4px;border:1px solid #ccc;border-radius:4px;">
                         <span>até</span>
-                        <input type="time" id="time-end-${index}" value="${convertToTimeInput(end)}" style="padding:4px;border:1px solid #ccc;border-radius:4px;">
+                        <input type="time" id="time-end-${index}" value="${convertToTimeInput(end)}"
+                            onchange="onEndTimeChange(${index})"
+                            style="padding:4px;border:1px solid #ccc;border-radius:4px;">
                     </div>
                 </div>`;
         } else {
@@ -2701,9 +2745,13 @@ function renderTimeSlotsConfig() {
                         </button>
                     </div>
                     <div style="display:flex;align-items:center;gap:8px;">
-                        <input type="time" id="time-start-${index}" value="${convertToTimeInput(start)}" style="padding:4px;border:1px solid #ccc;border-radius:4px;">
+                        <input type="time" id="time-start-${index}" value="${convertToTimeInput(start)}"
+                            onchange="onStartTimeChange(${index})"
+                            style="padding:4px;border:1px solid #ccc;border-radius:4px;">
                         <span>até</span>
-                        <input type="time" id="time-end-${index}" value="${convertToTimeInput(end)}" style="padding:4px;border:1px solid #ccc;border-radius:4px;">
+                        <input type="time" id="time-end-${index}" value="${convertToTimeInput(end)}"
+                            onchange="onEndTimeChange(${index})"
+                            style="padding:4px;border:1px solid #ccc;border-radius:4px;">
                     </div>
                 </div>`;
         }
@@ -2725,19 +2773,94 @@ function collectPendingInputValues() {
     });
 }
 
+// Recalcula start+end de todos os slots a partir de startIndex,
+// usando o fim do slot anterior como novo início e preservando durações.
+function cascadeTimesFrom(startIndex) {
+    if (!pendingTimeSlots || startIndex <= 0 || startIndex >= pendingTimeSlots.length) return;
+    const duration = getCurrentSlotDuration();
+
+    for (let i = startIndex; i < pendingTimeSlots.length; i++) {
+        const prevEnd = pendingTimeSlots[i - 1].time.split(' - ')[1].trim();
+        const prevEndMins = timeStringToMinutes(prevEnd);
+        const slot = pendingTimeSlots[i];
+
+        let slotMins;
+        if (slot.isInterval) {
+            const [cs, ce] = slot.time.split(' - ');
+            slotMins = timeStringToMinutes(ce.trim()) - timeStringToMinutes(cs.trim());
+            if (slotMins <= 0) slotMins = 20;
+        } else {
+            slotMins = duration;
+        }
+
+        slot.time = `${minutesToTimeString(prevEndMins)} - ${minutesToTimeString(prevEndMins + slotMins)}`;
+    }
+}
+
+// Atualiza apenas os inputs DOM afetados pela cascata (sem re-renderizar o HTML todo).
+function updateTimesInDOM(fromIndex) {
+    if (!pendingTimeSlots) return;
+    for (let i = fromIndex; i < pendingTimeSlots.length; i++) {
+        const [start, end] = pendingTimeSlots[i].time.split(' - ');
+        const si = document.getElementById(`time-start-${i}`);
+        const ei = document.getElementById(`time-end-${i}`);
+        if (si) si.value = start.trim();
+        if (ei) ei.value = end.trim();
+    }
+}
+
+function onDurationChange() {
+    // Reaplica a duração padrão a todos os slots a partir do primeiro,
+    // mantendo o início do primeiro slot.
+    collectPendingInputValues();
+    cascadeTimesFrom(1);
+    updateTimesInDOM(1);
+}
+
+function onStartTimeChange(index) {
+    if (!pendingTimeSlots) return;
+    const startInput = document.getElementById(`time-start-${index}`);
+    if (!startInput || !startInput.value) return;
+
+    const duration = getCurrentSlotDuration();
+    const startMins = timeStringToMinutes(startInput.value);
+    const endTime = minutesToTimeString(startMins + duration);
+
+    // Atualiza o fim desta aula diretamente no DOM e em pendingTimeSlots
+    const endInput = document.getElementById(`time-end-${index}`);
+    if (endInput) endInput.value = endTime;
+    pendingTimeSlots[index].time = `${startInput.value} - ${endTime}`;
+
+    // Coleta os outros inputs sem sobrescrever o que acabamos de definir
+    pendingTimeSlots.forEach((slot, i) => {
+        if (i === index) return;
+        const si = document.getElementById(`time-start-${i}`);
+        const ei = document.getElementById(`time-end-${i}`);
+        if (si && ei) slot.time = `${si.value} - ${ei.value}`;
+    });
+
+    cascadeTimesFrom(index + 1);
+    updateTimesInDOM(index + 1);
+}
+
+function onEndTimeChange(index) {
+    if (!pendingTimeSlots) return;
+    collectPendingInputValues();
+    cascadeTimesFrom(index + 1);
+    updateTimesInDOM(index + 1);
+}
+
 function addSlotAt(position) {
     collectPendingInputValues();
 
+    const duration = getCurrentSlotDuration();
     const prevSlot = position > 0 ? pendingTimeSlots[position - 1] : null;
     let startTime = '07:20';
-    let endTime = '08:10';
     if (prevSlot) {
-        const prevEnd = prevSlot.time.split(' - ')[1].trim();
-        startTime = prevEnd;
-        const [h, m] = prevEnd.split(':').map(Number);
-        const endMins = h * 60 + m + 50;
-        endTime = `${String(Math.floor(endMins / 60)).padStart(2, '0')}:${String(endMins % 60).padStart(2, '0')}`;
+        startTime = prevSlot.time.split(' - ')[1].trim();
     }
+    const startMins = timeStringToMinutes(startTime);
+    const endTime = minutesToTimeString(startMins + duration);
 
     const existingAulas = pendingTimeSlots.filter(s => !s.isInterval);
     let maxNum = existingAulas.length;
@@ -2754,6 +2877,7 @@ function addSlotAt(position) {
     };
 
     pendingTimeSlots.splice(position, 0, newSlot);
+    cascadeTimesFrom(position + 1);
     renderTimeSlotsConfig();
 }
 
@@ -2808,6 +2932,9 @@ function saveTimeSlotsConfig() {
             }).join(', ');
             if (!confirm(`⚠️ Os horários removidos (${names}) contêm aulas atribuídas que serão perdidas.\n\nDeseja continuar?`)) return;
         }
+
+        // Salvar duração padrão
+        slotDuration = getCurrentSlotDuration();
 
         timeSlots.length = 0;
         timeSlots.push(...pendingTimeSlots);
