@@ -38,6 +38,7 @@ let viewMode = 'general'; // 'general' ou 'class'
 let currentSelectedClass = classes[0]; // Padrão: primeira turma
 let cloudSyncTimer = null;
 let cloudSyncPendingSnapshot = null;
+let pendingTimeSlots = null; // Cópia de trabalho para o modal de configuração de horários
 let cloudSyncRunning = false;
 
 // ==================== INICIALIZAÇÃO ====================
@@ -2650,58 +2651,132 @@ function generatePDFReport() {
 // ==================== CONFIGURAÇÃO DE HORÁRIOS ====================
 
 function openTimeSlotsModal() {
+    pendingTimeSlots = JSON.parse(JSON.stringify(timeSlots));
     renderTimeSlotsConfig();
     document.getElementById('timeSlotsModal').classList.add('active');
 }
 
 function renderTimeSlotsConfig() {
     const container = document.getElementById('timeSlotsConfigList');
-
-    // Verificação de segurança
     if (!container) {
         console.error('Elemento timeSlotsConfigList não encontrado no DOM');
         showAlert('Erro ao abrir configuração de horários', 'error');
         return;
     }
 
-    let html = '';
+    const insertBtn = (pos) => `
+        <div style="text-align:center; margin:4px 0;">
+            <button onclick="addSlotAt(${pos})"
+                style="background:#e0f2fe;color:#0284c7;border:1px dashed #0284c7;padding:3px 14px;border-radius:20px;cursor:pointer;font-size:12px;">
+                ➕ Adicionar Aula aqui
+            </button>
+        </div>`;
 
-    timeSlots.forEach((slot, index) => {
+    let html = insertBtn(0);
+
+    pendingTimeSlots.forEach((slot, index) => {
         const [start, end] = slot.time.split(' - ');
 
         if (slot.isInterval) {
             html += `
-                <div class="time-slot-config interval" style="background: #e0e7ff; border-left: 4px solid #4338ca;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                <div style="background:#e0e7ff;border-left:4px solid #4338ca;padding:10px 15px;border-radius:8px;margin:2px 0;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
                         <strong>${slot.label}</strong>
-                        <span class="badge" style="background: #4338ca;">Intervalo</span>
+                        <span style="background:#4338ca;color:#fff;padding:2px 10px;border-radius:10px;font-size:12px;">Intervalo</span>
                     </div>
-                    <div class="time-inputs">
-                        <input type="time" id="time-start-${index}" value="${convertToTimeInput(start)}">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <input type="time" id="time-start-${index}" value="${convertToTimeInput(start)}" style="padding:4px;border:1px solid #ccc;border-radius:4px;">
                         <span>até</span>
-                        <input type="time" id="time-end-${index}" value="${convertToTimeInput(end)}">
+                        <input type="time" id="time-end-${index}" value="${convertToTimeInput(end)}" style="padding:4px;border:1px solid #ccc;border-radius:4px;">
                     </div>
-                </div>
-            `;
+                </div>`;
         } else {
             html += `
-                <div class="time-slot-config">
-                    <div class="slot-label">${slot.label}</div>
-                    <div class="time-inputs">
-                        <input type="time" id="time-start-${index}" value="${convertToTimeInput(start)}">
-                        <span>até</span>
-                        <input type="time" id="time-end-${index}" value="${convertToTimeInput(end)}">
+                <div style="background:#fff;border:1px solid #e2e8f0;border-left:4px solid #2563eb;padding:10px 15px;border-radius:8px;margin:2px 0;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                        <strong style="color:#1e40af;">${slot.label}</strong>
+                        <button onclick="removeSlotAt(${index})" title="Remover"
+                            style="background:#fee2e2;color:#dc2626;border:1px solid #fca5a5;border-radius:6px;padding:2px 10px;cursor:pointer;font-size:12px;">
+                            🗑️ Remover
+                        </button>
                     </div>
-                </div>
-            `;
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <input type="time" id="time-start-${index}" value="${convertToTimeInput(start)}" style="padding:4px;border:1px solid #ccc;border-radius:4px;">
+                        <span>até</span>
+                        <input type="time" id="time-end-${index}" value="${convertToTimeInput(end)}" style="padding:4px;border:1px solid #ccc;border-radius:4px;">
+                    </div>
+                </div>`;
         }
+
+        html += insertBtn(index + 1);
     });
 
     container.innerHTML = html;
 }
 
+function collectPendingInputValues() {
+    if (!pendingTimeSlots) return;
+    pendingTimeSlots.forEach((slot, index) => {
+        const startInput = document.getElementById(`time-start-${index}`);
+        const endInput = document.getElementById(`time-end-${index}`);
+        if (startInput && endInput) {
+            slot.time = `${startInput.value} - ${endInput.value}`;
+        }
+    });
+}
+
+function addSlotAt(position) {
+    collectPendingInputValues();
+
+    const prevSlot = position > 0 ? pendingTimeSlots[position - 1] : null;
+    let startTime = '07:20';
+    let endTime = '08:10';
+    if (prevSlot) {
+        const prevEnd = prevSlot.time.split(' - ')[1].trim();
+        startTime = prevEnd;
+        const [h, m] = prevEnd.split(':').map(Number);
+        const endMins = h * 60 + m + 50;
+        endTime = `${String(Math.floor(endMins / 60)).padStart(2, '0')}:${String(endMins % 60).padStart(2, '0')}`;
+    }
+
+    const existingAulas = pendingTimeSlots.filter(s => !s.isInterval);
+    let maxNum = existingAulas.length;
+    existingAulas.forEach(s => {
+        const match = s.label.match(/AULA (\d+)/);
+        if (match) maxNum = Math.max(maxNum, parseInt(match[1]));
+    });
+
+    const newSlot = {
+        id: 'custom_' + Date.now(),
+        label: 'AULA ' + (maxNum + 1),
+        time: `${startTime} - ${endTime}`,
+        isInterval: false
+    };
+
+    pendingTimeSlots.splice(position, 0, newSlot);
+    renderTimeSlotsConfig();
+}
+
+function removeSlotAt(index) {
+    collectPendingInputValues();
+    const slot = pendingTimeSlots[index];
+
+    if (slot.isInterval) return;
+
+    const hasLessons = days.some(day =>
+        schedule[day] && schedule[day][slot.id] &&
+        classes.some(cls => schedule[day][slot.id][cls] !== null)
+    );
+
+    if (hasLessons) {
+        if (!confirm(`⚠️ O horário "${slot.label}" possui aulas atribuídas.\n\nRemovê-lo apagará essas aulas da grade. Deseja continuar?`)) return;
+    }
+
+    pendingTimeSlots.splice(index, 1);
+    renderTimeSlotsConfig();
+}
+
 function convertToTimeInput(displayTime) {
-    // Converte "07:30" para "07:30" (já está no formato)
     return displayTime.trim();
 }
 
@@ -2711,28 +2786,51 @@ function convertToDisplayTime(inputTime) {
 
 function saveTimeSlotsConfig() {
     try {
-        // Coletar todos os valores dos inputs
-        timeSlots.forEach((slot, index) => {
-            const startInput = document.getElementById(`time-start-${index}`);
-            const endInput = document.getElementById(`time-end-${index}`);
+        collectPendingInputValues();
 
-            if (startInput && endInput) {
-                const start = convertToDisplayTime(startInput.value);
-                const end = convertToDisplayTime(endInput.value);
-                slot.time = `${start} - ${end}`;
-            }
+        const existingIds = new Set(timeSlots.filter(s => !s.isInterval).map(s => s.id));
+        const pendingIds = new Set(pendingTimeSlots.filter(s => !s.isInterval).map(s => s.id));
+
+        const removedIds = [...existingIds].filter(id => !pendingIds.has(id));
+        const addedSlots = pendingTimeSlots.filter(s => !s.isInterval && !existingIds.has(s.id));
+
+        const slotsWithLessons = removedIds.filter(id =>
+            days.some(day =>
+                schedule[day] && schedule[day][id] &&
+                classes.some(cls => schedule[day][id][cls] !== null)
+            )
+        );
+
+        if (slotsWithLessons.length > 0) {
+            const names = slotsWithLessons.map(id => {
+                const s = timeSlots.find(t => t.id === id);
+                return s ? s.label : id;
+            }).join(', ');
+            if (!confirm(`⚠️ Os horários removidos (${names}) contêm aulas atribuídas que serão perdidas.\n\nDeseja continuar?`)) return;
+        }
+
+        timeSlots.length = 0;
+        timeSlots.push(...pendingTimeSlots);
+
+        addedSlots.forEach(slot => {
+            days.forEach(day => {
+                if (!schedule[day]) schedule[day] = {};
+                schedule[day][slot.id] = {};
+                classes.forEach(cls => { schedule[day][slot.id][cls] = null; });
+            });
         });
 
-        // Salvar no localStorage
-        saveToStorage(); // Usar função centralizada
+        removedIds.forEach(id => {
+            days.forEach(day => {
+                if (schedule[day]) delete schedule[day][id];
+            });
+        });
 
-        // Fechar modal
+        saveToStorage();
         document.getElementById('timeSlotsModal').classList.remove('active');
-
-        // Re-renderizar a grade
         renderSchedule();
-
         showAlert('✅ Horários salvos com sucesso!', 'success');
+        pendingTimeSlots = null;
     } catch (error) {
         console.error('Erro ao salvar horários:', error);
         showAlert('❌ Erro ao salvar horários: ' + error.message, 'error');
@@ -2741,18 +2839,9 @@ function saveTimeSlotsConfig() {
 
 function resetTimeSlotsConfig() {
     if (confirm('⚠️ Tem certeza que deseja restaurar os horários padrão?\n\nTodas as suas configurações personalizadas de horários serão perdidas.')) {
-        // Resetar apenas os timeSlots para os valores padrão
-        timeSlots.length = 0;
-        timeSlots.push(...defaultTimeSlots);
-
-        // Salvar no localStorage
-        localStorage.setItem('customTimeSlots', JSON.stringify(timeSlots));
-
-        // Re-renderizar a configuração e a grade
+        pendingTimeSlots = JSON.parse(JSON.stringify(defaultTimeSlots));
         renderTimeSlotsConfig();
-        renderSchedule();
-
-        showAlert('✅ Horários restaurados para o padrão!', 'success');
+        showAlert('✅ Horários padrão restaurados. Clique em Salvar para confirmar.', 'success');
     }
 }
 
