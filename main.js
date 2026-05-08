@@ -121,6 +121,11 @@ function setupEventListeners() {
             btnDailyPDF.addEventListener('click', generateDailyPDFReport);
         }
 
+        const btnDailyPDFMain = document.getElementById('btnDailyPDFMain');
+        if (btnDailyPDFMain) {
+            btnDailyPDFMain.addEventListener('click', generateDailyPDFReport);
+        }
+
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', function () {
                 showDay(this.dataset.day);
