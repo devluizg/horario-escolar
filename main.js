@@ -116,6 +116,11 @@ function setupEventListeners() {
             btnPDF.addEventListener('click', generatePDFReport);
         }
 
+        const btnDailyPDF = document.getElementById('btnGenerateDailyPDF');
+        if (btnDailyPDF) {
+            btnDailyPDF.addEventListener('click', generateDailyPDFReport);
+        }
+
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', function () {
                 showDay(this.dataset.day);
@@ -2650,6 +2655,156 @@ function generatePDFReport() {
     });
 
     doc.save("relatorio-carga-horaria.pdf");
+}
+
+// ==================== PDF AULAS POR DIA ====================
+
+function generateDailyPDFReport() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation: 'landscape' });
+
+    const dayNames = {
+        'segunda': 'Segunda-feira',
+        'terca': 'Terça-feira',
+        'quarta': 'Quarta-feira',
+        'quinta': 'Quinta-feira',
+        'sexta': 'Sexta-feira'
+    };
+
+    // Título
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text("Aulas por Professor por Dia", 148, 14, null, null, "center");
+
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "normal");
+    doc.text(`Gerado em: ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')}`, 148, 21, null, null, "center");
+
+    // Calcular aulas de cada professor por dia
+    const teacherDayCounts = teachers.map((teacher, idx) => {
+        const dayCounts = {};
+        let weekTotal = 0;
+        days.forEach(day => {
+            let count = 0;
+            timeSlots.forEach(slot => {
+                if (!slot.isInterval) {
+                    classes.forEach(cls => {
+                        const lesson = schedule[day]?.[slot.id]?.[cls];
+                        if (lesson && lesson.teacherIdx === idx) count++;
+                    });
+                }
+            });
+            dayCounts[day] = count;
+            weekTotal += count;
+        });
+        return { teacher, dayCounts, weekTotal };
+    });
+
+    // Ordenar por nome
+    teacherDayCounts.sort((a, b) => a.teacher.name.localeCompare(b.teacher.name, 'pt-BR'));
+
+    // Cabeçalho da tabela
+    const colX = {
+        name: 14,
+        subject: 95,
+        segunda: 145,
+        terca: 163,
+        quarta: 181,
+        quinta: 199,
+        sexta: 217,
+        total: 240
+    };
+
+    let y = 32;
+
+    const drawTableHeader = () => {
+        doc.setFillColor(60, 90, 160);
+        doc.rect(14, y - 5, 266, 9, 'F');
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(9);
+        doc.setTextColor(255, 255, 255);
+        doc.text("Professor", colX.name + 1, y + 1);
+        doc.text("Disciplina", colX.subject + 1, y + 1);
+        doc.text("Seg", colX.segunda + 3, y + 1);
+        doc.text("Ter", colX.terca + 3, y + 1);
+        doc.text("Qua", colX.quarta + 3, y + 1);
+        doc.text("Qui", colX.quinta + 3, y + 1);
+        doc.text("Sex", colX.sexta + 3, y + 1);
+        doc.text("Total", colX.total + 1, y + 1);
+        doc.setTextColor(0, 0, 0);
+        y += 10;
+    };
+
+    drawTableHeader();
+
+    teacherDayCounts.forEach(({ teacher, dayCounts, weekTotal }, i) => {
+        if (y > 185) {
+            doc.addPage();
+            y = 20;
+            drawTableHeader();
+        }
+
+        // Linha zebrada
+        if (i % 2 === 0) {
+            doc.setFillColor(245, 247, 255);
+            doc.rect(14, y - 4, 266, 8, 'F');
+        }
+
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(8.5);
+        doc.setTextColor(20, 20, 20);
+
+        // Truncar nome se muito longo
+        const nameText = teacher.name.length > 28 ? teacher.name.substring(0, 26) + '…' : teacher.name;
+        const subjectText = (teacher.subject || '').length > 22 ? (teacher.subject || '').substring(0, 20) + '…' : (teacher.subject || '');
+
+        doc.text(nameText, colX.name + 1, y + 1);
+        doc.text(subjectText, colX.subject + 1, y + 1);
+
+        days.forEach(day => {
+            const count = dayCounts[day];
+            const xPos = colX[day] + 5;
+            if (count === 0) {
+                doc.setTextColor(180, 180, 180);
+            } else {
+                doc.setTextColor(20, 20, 20);
+            }
+            doc.text(String(count), xPos, y + 1, null, null, "center");
+        });
+
+        // Total semanal em destaque
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(60, 90, 160);
+        doc.text(String(weekTotal), colX.total + 4, y + 1, null, null, "center");
+
+        doc.setTextColor(0, 0, 0);
+        doc.setFont("helvetica", "normal");
+
+        y += 8;
+    });
+
+    // Linha de total geral
+    if (y > 185) {
+        doc.addPage();
+        y = 20;
+    }
+    y += 2;
+    doc.setFillColor(60, 90, 160);
+    doc.rect(14, y - 4, 266, 9, 'F');
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(9);
+    doc.setTextColor(255, 255, 255);
+    doc.text("TOTAL GERAL", colX.name + 1, y + 2);
+
+    let grandTotal = 0;
+    days.forEach(day => {
+        const dayTotal = teacherDayCounts.reduce((sum, t) => sum + t.dayCounts[day], 0);
+        grandTotal += dayTotal;
+        doc.text(String(dayTotal), colX[day] + 5, y + 2, null, null, "center");
+    });
+    doc.text(String(grandTotal), colX.total + 4, y + 2, null, null, "center");
+
+    doc.save("aulas-por-dia.pdf");
 }
 
 
