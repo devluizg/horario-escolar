@@ -2666,7 +2666,7 @@ function generatePDFReport() {
 
 function generateDailyPDFReport() {
     const { jsPDF } = window.jspdf;
-    const doc = new jsPDF({ orientation: 'landscape' });
+    const doc = new jsPDF();
 
     const dayNames = {
         'segunda': 'Segunda-feira',
@@ -2676,16 +2676,7 @@ function generateDailyPDFReport() {
         'sexta': 'Sexta-feira'
     };
 
-    // Título
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(16);
-    doc.text("Aulas por Professor por Dia", 148, 14, null, null, "center");
-
-    doc.setFontSize(10);
-    doc.setFont("helvetica", "normal");
-    doc.text(`Gerado em: ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')}`, 148, 21, null, null, "center");
-
-    // Calcular aulas de cada professor por dia
+    // Pré-calcular aulas de cada professor por dia
     const teacherDayCounts = teachers.map((teacher, idx) => {
         const dayCounts = {};
         let weekTotal = 0;
@@ -2702,112 +2693,115 @@ function generateDailyPDFReport() {
             dayCounts[day] = count;
             weekTotal += count;
         });
-        return { teacher, dayCounts, weekTotal };
+        return { teacher, idx, dayCounts, weekTotal };
     });
 
     // Ordenar por nome
     teacherDayCounts.sort((a, b) => a.teacher.name.localeCompare(b.teacher.name, 'pt-BR'));
 
-    // Cabeçalho da tabela
-    const colX = {
-        name: 14,
-        subject: 95,
-        segunda: 145,
-        terca: 163,
-        quarta: 181,
-        quinta: 199,
-        sexta: 217,
-        total: 240
-    };
+    const pageW = 210;
+    const marginL = 14;
+    const tableW = pageW - marginL * 2;
+    const colName = marginL;
+    const colSubject = marginL + 68;
+    const colCount = marginL + 138;
+    const rowH = 7;
 
-    let y = 32;
+    let firstPage = true;
 
-    const drawTableHeader = () => {
-        doc.setFillColor(60, 90, 160);
-        doc.rect(14, y - 5, 266, 9, 'F');
+    days.forEach(day => {
+        // Nova página para cada dia (exceto o primeiro)
+        if (!firstPage) {
+            doc.addPage();
+        }
+        firstPage = false;
+
+        // Cabeçalho do documento
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(14);
+        doc.setTextColor(0, 0, 0);
+        doc.text("Aulas por Professor — " + dayNames[day], pageW / 2, 14, null, null, "center");
+
+        doc.setFontSize(9);
+        doc.setFont("helvetica", "normal");
+        doc.setTextColor(100, 100, 100);
+        doc.text(`Gerado em: ${new Date().toLocaleDateString('pt-BR')} às ${new Date().toLocaleTimeString('pt-BR')}`, pageW / 2, 20, null, null, "center");
+
+        // Cabeçalho da tabela
+        let y = 28;
+        doc.setFillColor(50, 80, 160);
+        doc.rect(marginL, y, tableW, 8, 'F');
         doc.setFont("helvetica", "bold");
         doc.setFontSize(9);
         doc.setTextColor(255, 255, 255);
-        doc.text("Professor", colX.name + 1, y + 1);
-        doc.text("Disciplina", colX.subject + 1, y + 1);
-        doc.text("Seg", colX.segunda + 3, y + 1);
-        doc.text("Ter", colX.terca + 3, y + 1);
-        doc.text("Qua", colX.quarta + 3, y + 1);
-        doc.text("Qui", colX.quinta + 3, y + 1);
-        doc.text("Sex", colX.sexta + 3, y + 1);
-        doc.text("Total", colX.total + 1, y + 1);
-        doc.setTextColor(0, 0, 0);
-        y += 10;
-    };
+        doc.text("Professor", colName + 2, y + 5.5);
+        doc.text("Disciplina", colSubject + 2, y + 5.5);
+        doc.text("Aulas", colCount + 2, y + 5.5);
+        y += 8;
 
-    drawTableHeader();
+        // Professores ordenados por nome
+        let dayTotal = 0;
+        teacherDayCounts.forEach(({ teacher, dayCounts }, i) => {
+            if (y > 275) {
+                doc.addPage();
+                y = 20;
+                // Repetir cabeçalho da tabela na nova página
+                doc.setFillColor(50, 80, 160);
+                doc.rect(marginL, y, tableW, 8, 'F');
+                doc.setFont("helvetica", "bold");
+                doc.setFontSize(9);
+                doc.setTextColor(255, 255, 255);
+                doc.text("Professor", colName + 2, y + 5.5);
+                doc.text("Disciplina", colSubject + 2, y + 5.5);
+                doc.text("Aulas", colCount + 2, y + 5.5);
+                y += 8;
+            }
 
-    teacherDayCounts.forEach(({ teacher, dayCounts, weekTotal }, i) => {
-        if (y > 185) {
-            doc.addPage();
-            y = 20;
-            drawTableHeader();
-        }
-
-        // Linha zebrada
-        if (i % 2 === 0) {
-            doc.setFillColor(245, 247, 255);
-            doc.rect(14, y - 4, 266, 8, 'F');
-        }
-
-        doc.setFont("helvetica", "normal");
-        doc.setFontSize(8.5);
-        doc.setTextColor(20, 20, 20);
-
-        // Truncar nome se muito longo
-        const nameText = teacher.name.length > 28 ? teacher.name.substring(0, 26) + '…' : teacher.name;
-        const subjectText = (teacher.subject || '').length > 22 ? (teacher.subject || '').substring(0, 20) + '…' : (teacher.subject || '');
-
-        doc.text(nameText, colX.name + 1, y + 1);
-        doc.text(subjectText, colX.subject + 1, y + 1);
-
-        days.forEach(day => {
             const count = dayCounts[day];
-            const xPos = colX[day] + 5;
+            dayTotal += count;
+
+            // Zebrado
+            if (i % 2 === 0) {
+                doc.setFillColor(245, 248, 255);
+                doc.rect(marginL, y, tableW, rowH, 'F');
+            }
+
+            doc.setFont("helvetica", count === 0 ? "normal" : "normal");
+            doc.setFontSize(9);
+
+            // Nome
+            doc.setTextColor(count === 0 ? 160 : 20, count === 0 ? 160 : 20, count === 0 ? 160 : 20);
+            const nameText = teacher.name.length > 26 ? teacher.name.substring(0, 24) + '…' : teacher.name;
+            doc.text(nameText, colName + 2, y + 5);
+
+            // Disciplina
+            const sub = teacher.subject || '';
+            const subText = sub.length > 24 ? sub.substring(0, 22) + '…' : sub;
+            doc.text(subText, colSubject + 2, y + 5);
+
+            // Contagem — destaque se > 0
             if (count === 0) {
                 doc.setTextColor(180, 180, 180);
+                doc.setFont("helvetica", "normal");
             } else {
-                doc.setTextColor(20, 20, 20);
+                doc.setTextColor(30, 100, 30);
+                doc.setFont("helvetica", "bold");
             }
-            doc.text(String(count), xPos, y + 1, null, null, "center");
+            doc.text(String(count), colCount + 10, y + 5, null, null, "center");
+
+            y += rowH;
         });
 
-        // Total semanal em destaque
+        // Linha de total do dia
+        y += 2;
+        doc.setFillColor(50, 80, 160);
+        doc.rect(marginL, y, tableW, 8, 'F');
         doc.setFont("helvetica", "bold");
-        doc.setTextColor(60, 90, 160);
-        doc.text(String(weekTotal), colX.total + 4, y + 1, null, null, "center");
-
-        doc.setTextColor(0, 0, 0);
-        doc.setFont("helvetica", "normal");
-
-        y += 8;
+        doc.setFontSize(9);
+        doc.setTextColor(255, 255, 255);
+        doc.text(`Total de aulas no dia`, colName + 2, y + 5.5);
+        doc.text(String(dayTotal), colCount + 10, y + 5.5, null, null, "center");
     });
-
-    // Linha de total geral
-    if (y > 185) {
-        doc.addPage();
-        y = 20;
-    }
-    y += 2;
-    doc.setFillColor(60, 90, 160);
-    doc.rect(14, y - 4, 266, 9, 'F');
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(9);
-    doc.setTextColor(255, 255, 255);
-    doc.text("TOTAL GERAL", colX.name + 1, y + 2);
-
-    let grandTotal = 0;
-    days.forEach(day => {
-        const dayTotal = teacherDayCounts.reduce((sum, t) => sum + t.dayCounts[day], 0);
-        grandTotal += dayTotal;
-        doc.text(String(dayTotal), colX[day] + 5, y + 2, null, null, "center");
-    });
-    doc.text(String(grandTotal), colX.total + 4, y + 2, null, null, "center");
 
     doc.save("aulas-por-dia.pdf");
 }
