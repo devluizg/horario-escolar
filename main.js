@@ -2696,8 +2696,7 @@ function generateDailyPDFReport() {
         return { teacher, idx, dayCounts, weekTotal };
     });
 
-    // Ordenar por nome
-    teacherDayCounts.sort((a, b) => a.teacher.name.localeCompare(b.teacher.name, 'pt-BR'));
+    // Ordenação será feita por dia (do menor para o maior número de aulas)
 
     const pageW = 210;
     const marginL = 14;
@@ -2739,9 +2738,14 @@ function generateDailyPDFReport() {
         doc.text("Aulas", colCount + 2, y + 5.5);
         y += 8;
 
-        // Professores ordenados por nome
+        // Professores ordenados por aulas no dia (menor → maior), desempate por nome
+        const sorted = [...teacherDayCounts].sort((a, b) => {
+            const diff = a.dayCounts[day] - b.dayCounts[day];
+            return diff !== 0 ? diff : a.teacher.name.localeCompare(b.teacher.name, 'pt-BR');
+        });
+
         let dayTotal = 0;
-        teacherDayCounts.forEach(({ teacher, dayCounts }, i) => {
+        sorted.forEach(({ teacher, dayCounts }, i) => {
             if (y > 275) {
                 doc.addPage();
                 y = 20;
